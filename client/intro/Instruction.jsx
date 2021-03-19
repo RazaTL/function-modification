@@ -12,7 +12,7 @@ export default class Instruction extends React.Component {
       <Centered>
         <div className="instructions">
           
-          <InstructionText />
+          <InstructionText {...this.props} />
 
           <p>
             <button type="button" onClick={onPrev} disabled={!hasPrev}>
