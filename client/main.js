@@ -5,9 +5,12 @@ import Thanks from "./exit/Thanks";
 import About from "./intro/About";
 import Round from "./game/Round";
 import Instruction from "./intro/Instruction";
+import Identification from "./intro/Identification";
 
 // Set the About Component you want to use for the About dialog (optional).
 Empirica.about(About);
+
+Empirica.newPlayer(Identification);
 
 // Set the Consent Component you want to present players (optional).
 // Empirica.consent(Consent);
