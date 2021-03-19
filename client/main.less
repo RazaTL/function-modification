@@ -1,0 +1,275 @@
+body {
+  line-height: 1.6 !important;
+}
+
+.instruction-text {
+  color: #333;
+  margin-bottom: 3.5rem !important;
+  padding-left: 1.5rem;
+  .example {
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 2rem 2.5rem;
+    .label {
+      margin-bottom: 1rem;
+    }
+    &.good {
+      border-color: blue;
+      .label {
+        color: blue;
+      }
+    }
+    &.bad {
+      border-color: red;
+      .label {
+        color: red;
+      }
+    }
+  }
+}
+
+.round .player-profile {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+@media(min-width: 767px) {
+  .bp3-dialog {
+    width: 70% !important;
+  }
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .content {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .player-profile {
+    display: flex;
+    flex-direction: column;
+    width: 24rem;
+    min-height: 100%;
+    align-items: center;
+    padding: 3rem 4rem;
+
+    .profile-avatar {
+      width: 8rem;
+      height: 8rem;
+      margin: 3rem 0;
+    }
+
+    .profile-score {
+      text-align: center;
+      span {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+
+    .timer {
+      margin-top: 2rem;
+      text-align: center;
+
+      .seconds {
+        font-size: 2rem;
+        // Helvetica has tabular numbers (fixed width), which looks better
+        // for a timer, doesn't jump all over the place.
+        font-family: Helvetica, Arial, sans-serif;
+        color: green;
+      }
+      &.lessThan10 {
+        .seconds {
+          color: orange;
+        }
+      }
+      &.lessThan5 {
+        .seconds {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .task {
+    align-content: right;
+    padding: 4rem 4rem 0 4rem;
+    width: 100%;
+
+    .task-response {
+      margin: 3rem 0 0;
+      width: 100%;
+      display: flex;
+
+      .task-response-form {
+        width: 70%;
+        padding-right: 2rem;
+
+        .selected-draft {
+          background-color: #efefef;
+          padding: 1rem 1.5rem;
+          border-radius: 10px;
+          margin-bottom: 1rem;
+        }
+
+        button {
+          margin-right: 1rem;
+        }
+
+        textarea {
+          white-space: pre-wrap;
+          overflow-wrap: break-word;
+          width: 100%;
+          min-height: 260px;
+        }
+
+        button[type="submit"] {
+          margin-top: 2rem;
+        }
+      }
+
+      .response-submitted {
+        background-color: #e8e8e8;
+        padding: 2rem;
+        border-radius: 0.4rem;
+
+        h5 {
+          margin: 0 0 0.5rem;
+          font-size: inherit;
+        }
+      }
+    }
+  }
+
+  .social-exposure {
+    margin: 4rem;
+
+    .alter {
+      display: flex;
+      padding-right: 3rem;
+
+      img {
+        width: 6rem;
+        height: 6rem;
+        margin-right: 3rem;
+      }
+
+      .range {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid lightgray;
+  background-color: #eee;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.instructions,
+.quiz,
+.exit-survey {
+  button {
+    margin: 2rem 1rem 0 0;
+  }
+
+  label {
+    display: block;
+    margin: 2rem 0 1rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid lightgray;
+  }
+
+  input[type="radio"] {
+    margin-right: 0.5rem;
+  }
+
+  textarea {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid lightgray;
+  }
+}
+
+.exit-survey {
+  .form-line {
+    display: flex;
+
+    & > div {
+      margin-right: 30px;
+
+      textarea {
+        min-height: 90px;
+        width: 100%;
+      }
+    }
+
+    &.thirds {
+      & > div {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 30%;
+
+        label {
+          min-height: 36px;
+        }
+      }
+    }
+  }
+}
+
+.finished {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archive {
+  width: 30%;
+  height: calc(100vh - 250px);
+  overflow-y: scroll;
+  margin-top: -120px;
+  .draft {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    button {
+      margin: .75rem 0 0;
+    }
+    &.selected {
+      background-color: #efefef;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+  &.orange {
+    background-color: orange;
+  }
+  &.green {
+    background-color: green;
+    color: #fff;
+  }
+}
