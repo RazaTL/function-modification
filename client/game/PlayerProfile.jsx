@@ -8,7 +8,6 @@ export default class PlayerProfile extends React.Component {
     return (
       <div className="profile-score">
         <p>Your Worker ID: {player.id}</p>
-        <img src={player.get("avatar")} className="profile-avatar" />
       </div>
     );
   }
