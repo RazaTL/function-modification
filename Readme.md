@@ -91,6 +91,7 @@ meteor update empirica:core
 
 ---
 
-## deploy
+## run
 
-`meteor deploy my-app.meteorapp.com --free --mongo`
+- local: `meteor --settings local.json`
+- deploy: `DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy --settings settings.json my-app-name.meteorapp.com --free`
