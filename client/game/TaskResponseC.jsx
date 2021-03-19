@@ -91,8 +91,10 @@ export default class TaskResponseC extends React.Component {
     
     if (numOfWords < 200)
       alert("The story is less than 200 words.");
-    else
+    else {
+      localStorage.setItem("confirmed", "");
       this.props.player.stage.submit();
+    }
   };
 
   countWords = (str) => {
@@ -179,7 +181,7 @@ export default class TaskResponseC extends React.Component {
             </div>
         }
 
-        <div className="archive">
+        <div className={confirmed ? "archive confirmed" : "archive"}>
             <h4>All drafts</h4>
             {drafts.map(this.renderDraft)}
         </div>

@@ -4,6 +4,7 @@ import Empirica from "meteor/empirica:core";
 // the first onRoundStart. It receives the game and list of all the players in
 // the game.
 Empirica.onGameStart(game => {
+  localStorage.setItem("confirmed", "");
 });
 
 // onRoundStart is triggered before each round starts, and before onStageStart.

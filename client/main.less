@@ -2,6 +2,10 @@ body {
   line-height: 1.6 !important;
 }
 
+.examples {
+  display: flex;
+}
+
 .instruction-text {
   color: #333;
   margin-bottom: 3.5rem !important;
@@ -11,11 +15,13 @@ body {
     border-radius: 10px;
     margin-bottom: 2rem;
     padding: 2rem 2.5rem;
+    width: 50%;
     .label {
       margin-bottom: 1rem;
     }
     &.good {
       border-color: blue;
+      margin-right: 1rem;
       .label {
         color: blue;
       }
@@ -100,8 +106,12 @@ body {
 
   .task {
     align-content: right;
-    padding: 4rem 4rem 0 4rem;
+    padding: 1rem 4rem 0 4rem;
     width: 100%;
+
+    .task-stimulus {
+      width: 70%;
+    }
 
     .task-response {
       margin: 3rem 0 0;
@@ -249,6 +259,11 @@ button {
   height: calc(100vh - 250px);
   overflow-y: scroll;
   margin-top: -120px;
+  &.confirmed {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
   .draft {
     border: 1px solid #ddd;
     border-radius: 10px;
