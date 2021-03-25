@@ -8,7 +8,7 @@ import Instruction from "./intro/Instruction";
 import Identification from "./intro/Identification";
 
 // Set the About Component you want to use for the About dialog (optional).
-Empirica.about(About);
+// Empirica.about(About);
 
 Empirica.newPlayer(Identification);
 
