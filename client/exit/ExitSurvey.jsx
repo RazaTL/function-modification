@@ -49,7 +49,7 @@ export default class ExitSurvey extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
               <div>
-                <label htmlFor="age">Age</label>
+                <label htmlFor="age"><b>Age</b></label>
                 <div>
                   <input
                     id="age"
@@ -65,7 +65,7 @@ export default class ExitSurvey extends React.Component {
                 </div>
               </div>
               <div>
-                <label htmlFor="gender">Gender</label>
+                <label htmlFor="gender"><b>Gender</b></label>
                 <div>
                   <input
                     id="gender"
@@ -81,7 +81,7 @@ export default class ExitSurvey extends React.Component {
             </div>
 
             <div>
-              <label>Highest Education Qualification</label>
+              <label><b>Highest Education Qualification</b></label>
               <div>
                 <Radio
                   selected={education}
@@ -117,7 +117,7 @@ export default class ExitSurvey extends React.Component {
             <div className="form-line thirds">
               <div>
                 <label htmlFor="strength">
-                  How would you describe your strength in the game?
+                  <b>How would you describe your strength in writing stories?</b>
                 </label>
                 <div>
                   <textarea
@@ -130,20 +130,8 @@ export default class ExitSurvey extends React.Component {
                 </div>
               </div>
               <div>
-                <label htmlFor="fair">Do you feel the pay was fair?</label>
-                <div>
-                  <textarea
-                    dir="auto"
-                    id="fair"
-                    name="fair"
-                    value={fair}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-              <div>
                 <label htmlFor="feedback">
-                  Feedback, including problems you encountered.
+                  <b>Feedback, including problems you encountered.</b>
                 </label>
                 <div>
                   <textarea
@@ -151,6 +139,20 @@ export default class ExitSurvey extends React.Component {
                     id="feedback"
                     name="feedback"
                     value={feedback}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="fair">
+                  <b>Do you feel the pay was fair?</b>
+                </label>
+                <div>
+                  <textarea
+                    dir="auto"
+                    id="fair"
+                    name="fair"
+                    value={fair}
                     onChange={this.handleChange}
                   />
                 </div>
