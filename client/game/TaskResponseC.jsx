@@ -1,13 +1,22 @@
 import React from "react";
 
+import {
+  Callout, Intent,
+} from "@blueprintjs/core";
+import { IconNames } from "@blueprintjs/icons";
+
+
 export default class TaskResponseC extends React.Component {
   constructor(props) {
     super(props);
+    this.submitRef = React.createRef();
 
     this.state = {
       numOfWords: 0,
       selected: 0,
+      stories: [],
       confirmed: localStorage.getItem("confirmed") || false,
+      submitted: false,
     };
   }
 
@@ -42,59 +51,107 @@ export default class TaskResponseC extends React.Component {
   }
 
   handleConfirm = () => {
-    const { selected, confirmed } = this.state;
+    const { selected, stories } = this.state;
     const { round, player } = this.props;
     const drafts = round.data.drafts;
+    
+    const newStories = [...stories, drafts[selected].content]
 
     if (selected >= 0) {
         this.setState(prevState => ({
             ...prevState,
-            confirmed: !confirmed,
-        }));
-
-        player.round.set("value", drafts[selected].content);
-        localStorage.setItem("confirmed", true);
+            confirmed: true,
+            stories: newStories,
+        }), () => {
+          player.round.set("value", newStories);
+          localStorage.setItem("confirmed", true);
+        });
     }
     
   }
 
   handleBack = () => {
-    const { confirmed } = this.state;
+    const { stories } = this.state;
+    const { player } = this.props;
+
+    const newStories = stories.filter((s, i) => i == stories.length - 1)
 
     this.setState(prevState => ({
         ...prevState,
-        confirmed: !confirmed,
-    }));
+        confirmed: false,
+        stories: newStories,
+    }), () => {
+      player.round.set("value", newStories);
+    });
 
     localStorage.setItem("confirmed", "");
     
   }
 
-  handleChange = (event) => {
+  handleChange = (e) => {
+    const { stories } = this.state;
     const { player } = this.props;
-    const value = event.target.value
+    const value = e.target.value
 
     const newNum = this.countWords(value);
+    const newStories = [...stories];
+    newStories[stories.length - 1] = value;
 
     this.setState(prevState => ({
         ...prevState,
         numOfWords: newNum,
-    }));
-
-    player.round.set("value", value);
+        stories: newStories,
+    }), () => {
+      player.round.set("value", newStories);
+    });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleNext = (e) => {
+    e.preventDefault();
 
-    const {numOfWords} = this.state;
-    
+    const { numOfWords, stories } = this.state;
+    const { player } = this.props;
+
     if (numOfWords < 200)
       alert("The story is less than 200 words.");
     else {
       localStorage.setItem("confirmed", "");
-      this.props.player.stage.submit();
+
+      // show drafts again
+      // add story to state array
+      const newStories = [...stories, ""]
+      console.log(newStories);
+
+      this.setState(prevState => ({
+        ...prevState,
+        confirmed: false,
+        stories: newStories,
+        submitted: true,
+        numOfWords: 0,
+      }), () => {
+        setTimeout(() => {
+          if (this.state.submitted) {
+            this.setState(prevState => ({
+              ...prevState,
+              submitted: false,
+            }))
+          }
+        }, 4000)
+      });
+
+      console.log(newStories.length)
+      player.round.set("value", newStories);
+      player.round.set("score", newStories.length);
+
+
     }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    localStorage.setItem("confirmed", "");
+    this.props.player.stage.submit();
   };
 
   countWords = (str) => {
@@ -130,31 +187,53 @@ export default class TaskResponseC extends React.Component {
     );
   }
 
-  renderTextarea() {
-    const { player } = this.props;
-    const value = player.round.get("value");
+  renderTextarea(story, index) {
+    const { stories } = this.state;
+    const isActive = (stories.length - 1 == index) ? "active " : "";
+
     return (
       <textarea
         onChange={this.handleChange}
-        value={value}
+        value={story}
+        key={index}
+        className={isActive + "story story" + index}
       >
       </textarea>
     );
   }
 
   componentDidMount() {
-    if (document.querySelector("textarea")) {
-        const newNum = this.countWords(document.querySelector("textarea").value)
+    const { player } = this.props;
+
+    if (player) {
+      const currentValue = player.round.get("value");
+
+      if (!currentValue || currentValue.length == 0) {
         this.setState(prevState => ({
-            ...prevState,
-            numOfWords: newNum,
+          ...prevState,
+          stories: [""],
         }));
+      }
+      else {
+        this.setState(prevState => ({
+          ...prevState,
+          stories: currentValue,
+        }));
+      }
+    }
+    
+    if (document.querySelector(".story.active")) {
+      const newNum = this.countWords(document.querySelector(".story.active").value)
+      this.setState(prevState => ({
+        ...prevState,
+        numOfWords: newNum,
+      }));
     }
   }
 
   render() {
-    const { player, round } = this.props;
-    const { numOfWords, selected, confirmed } = this.state;
+    const { player, stage, round } = this.props;
+    const { numOfWords, selected, confirmed, stories, submitted } = this.state;
     const drafts = round.data.drafts;
 
     // If the player already submitted, don't show the slider or submit button
@@ -162,13 +241,34 @@ export default class TaskResponseC extends React.Component {
       return this.renderSubmitted();
     }
 
+    if (stage.ended) {
+      this.submitRef.click();
+    }
+
     return (
       <div className="task-response">
+        {
+          submitted ? 
+            <div className="success">
+              <Callout
+                icon={IconNames.TICK}
+                intent={Intent.SUCCESS}
+                title="Success"
+              >
+                Successfully submitted. Thank you so much. Enjoy writing your next story!
+              </Callout>
+            </div>
+          :
+          ""
+        }
         {confirmed ? 
             <form className="task-response-form" onSubmit={this.handleSubmit}>
-                {this.renderTextarea()}
+
+                {stories.map((s, i) => this.renderTextarea(s, i))}
+
                 <div>Total {numOfWords} words</div>
-                <button className="green" type="submit">Submit</button>
+                <button ref={this.submitRef} className="hidden" type="submit">Submit</button>
+                <button className="green" onClick={this.handleNext}>Submit (Start writing next story)</button>
                 <button className="orange" onClick={this.handleBack}>Go back to choose a different draft</button>
             </form>
             :
