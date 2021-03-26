@@ -51,6 +51,17 @@ body {
   flex-direction: column;
   height: 100%;
 
+  .instruction {
+    width: 100px;
+    background-color: #dfdfdf !important;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    position: fixed;
+    right: 32px;
+    top: 62px;
+  }
+
   .content {
     flex-grow: 1;
     height: 100%;
@@ -108,6 +119,8 @@ body {
     align-content: right;
     padding: 1rem 4rem 0 4rem;
     width: 100%;
+    z-index: 10;
+    position: relative;
 
     .task-stimulus {
       width: 70%;
@@ -133,11 +146,15 @@ body {
           margin-right: 1rem;
         }
 
-        textarea {
+        .story {
           white-space: pre-wrap;
           overflow-wrap: break-word;
           width: 100%;
           min-height: 260px;
+          display: none;
+          &.active {
+            display: block;
+          }
         }
 
         button[type="submit"] {
@@ -287,4 +304,16 @@ button {
     background-color: green;
     color: #fff;
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.success {
+  background-color: #fff;
+}
+.bp3-callout.bp3-intent-success {
+  position: absolute;
+  z-index: 999;
 }
