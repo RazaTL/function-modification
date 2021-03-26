@@ -2,6 +2,12 @@ import React from "react";
 
 import { Centered } from "meteor/empirica:core";
 
+import {
+  Callout, Intent,
+} from "@blueprintjs/core";
+import { IconNames } from "@blueprintjs/icons";
+
+
 const Radio = ({ selected, name, value, label, onChange }) => (
   <label>
     <input
@@ -32,15 +38,19 @@ export default class ExitSurvey extends React.Component {
   render() {
     const { player } = this.props;
     const { age, gender, strength, fair, feedback, education } = this.state;
+    const isFinished = (player.exitStepsDone.length >= 2)
 
     return (
       <Centered>
+      {isFinished ? 
+        
         <div className="exit-survey">
           <h1> Exit Survey (optional) </h1>
-          <p>
-            Please submit the following code to receive the payment back on Mechanical Turk:{" "}
-            <strong>{player._id}</strong>.
-          </p>
+            <p>
+              Please submit the following code to receive the payment back on Mechanical Turk:{" "}
+              <strong>{player._id}</strong>.
+            </p>
+            
           <br />
           <p>
             Please answer the following short survey. You do not have to provide
@@ -162,6 +172,15 @@ export default class ExitSurvey extends React.Component {
             <button type="submit">Submit</button>
           </form>
         </div>
+        :
+        <Callout
+            icon={IconNames.ERROR}
+            intent={Intent.DANGER}
+            title="Warning"
+          >
+            The task ended since you were idle or offline for more than 3 minutes.
+        </Callout>
+      }
       </Centered>
     );
   }
