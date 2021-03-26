@@ -16,7 +16,8 @@ class timer extends React.Component {
       <div className={classes.join(" ")}>
         <h4>Timer</h4>
         <span className="seconds">
-        {Math.floor(remainingSeconds / 60)} minutes {remainingSeconds % 60} seconds
+        {Math.floor(remainingSeconds / 60)} minutes <br/>
+        {remainingSeconds % 60} seconds
         </span>
       </div>
     );
