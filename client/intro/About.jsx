@@ -15,13 +15,13 @@ export default class About extends React.Component {
     this.setState({ isAboutOpen: !this.state.isAboutOpen });
   
   render() {
-    console.log(this.props);
     return <>
             <Button
               text="Instruction"
               minimal
               icon={IconNames.info_sign}
               onClick={this.handleToggleAbout}
+              className="instruction"
             />
 
             <Dialog
