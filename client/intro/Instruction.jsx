@@ -2,6 +2,8 @@ import React from "react";
 
 import { Centered } from "meteor/empirica:core";
 import InstructionText from "./InstructionText";
+import { isMobile } from 'react-device-detect';
+
 
 export default class Instruction extends React.Component {
 
@@ -10,6 +12,9 @@ export default class Instruction extends React.Component {
 
     return (
       <Centered>
+        {isMobile ?
+        "Please use desktop to perform this task."
+        :
         <div className="instructions">
           
           <InstructionText {...this.props} />
@@ -23,6 +28,7 @@ export default class Instruction extends React.Component {
             </button>
           </p>
         </div>
+        }
       </Centered>
     );
   }
