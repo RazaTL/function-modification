@@ -21,15 +21,19 @@ Empirica.onStageEnd((game, round, stage) => {});
 // onRoundEnd is triggered after each round.
 // It receives the same options as onGameEnd, and the round that just ended.
 Empirica.onRoundEnd((game, round) => {
-  game.players.forEach(player => {
-    const prevScore = player.get("score") || 0;
-    player.set("score", prevScore + 1);
-  });
+  console.log(player.get("score"));
 });
 
 // onGameEnd is triggered when the game ends.
 // It receives the same options as onGameStart.
-Empirica.onGameEnd(game => {});
+Empirica.onGameEnd(game => {
+  game.players.forEach(player => {
+    const score = player.get("score");
+    if (score.score1 < 1 || score.score2 < 1) {
+      player.set("isFinished", "false")
+    }
+  })
+});
 
 // ===========================================================================
 // => onSet, onAppend and onChange ==========================================
