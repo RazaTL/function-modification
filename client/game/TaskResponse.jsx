@@ -41,8 +41,8 @@ export default class TaskResponse extends React.Component {
   handleNext = (e) => {
     e.preventDefault();
 
-    const { player } = this.props;
     const { numOfWords, stories } = this.state;
+    const { player, round } = this.props;
 
     if (numOfWords < 200)
       alert("The story is less than 200 words.");
@@ -54,6 +54,7 @@ export default class TaskResponse extends React.Component {
         ...prevState,
         stories: newStories,
         submitted: true,
+        numOfWords: 0,
       }), () => {
         setTimeout(() => {
           if (this.state.submitted) {
@@ -67,9 +68,11 @@ export default class TaskResponse extends React.Component {
 
       console.log(newStories)
       console.log(newStories.length)
+      console.log(this.props);
 
       player.round.set("value", newStories);
-      player.round.set("score", newStories.length);
+      this.props.handleScore(newStories.length - 1, round.index);
+      // player.round.set("score", newStories.length);
 
     }
   }
@@ -118,6 +121,8 @@ export default class TaskResponse extends React.Component {
   componentDidMount() {
     const { player } = this.props;
 
+    console.log(this.props);
+
     if (player) {
       const currentValue = player.round.get("value");
 
@@ -133,6 +138,7 @@ export default class TaskResponse extends React.Component {
           stories: currentValue,
         }));
       }
+      console.log(currentValue);
     }
     
     if (document.querySelector(".story.active")) {
@@ -142,6 +148,8 @@ export default class TaskResponse extends React.Component {
         numOfWords: newNum,
       }));
     }
+
+    
   }
 
   render() {

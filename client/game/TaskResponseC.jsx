@@ -57,6 +57,8 @@ export default class TaskResponseC extends React.Component {
     
     const newStories = [...stories, drafts[selected].content]
 
+    console.log(newStories)
+
     if (selected >= 0) {
         this.setState(prevState => ({
             ...prevState,
@@ -74,7 +76,8 @@ export default class TaskResponseC extends React.Component {
     const { stories } = this.state;
     const { player } = this.props;
 
-    const newStories = stories.filter((s, i) => i == stories.length - 1)
+    const newStories = stories.filter((s, i) => i != stories.length - 1)
+    console.log(newStories);
 
     this.setState(prevState => ({
         ...prevState,
@@ -110,7 +113,7 @@ export default class TaskResponseC extends React.Component {
     e.preventDefault();
 
     const { numOfWords, stories } = this.state;
-    const { player } = this.props;
+    const { player, round } = this.props;
 
     if (numOfWords < 200)
       alert("The story is less than 200 words.");
@@ -119,7 +122,7 @@ export default class TaskResponseC extends React.Component {
 
       // show drafts again
       // add story to state array
-      const newStories = [...stories, ""]
+      const newStories = [...stories]
       console.log(newStories);
 
       this.setState(prevState => ({
@@ -141,7 +144,9 @@ export default class TaskResponseC extends React.Component {
 
       console.log(newStories.length)
       player.round.set("value", newStories);
-      player.round.set("score", newStories.length);
+      this.props.handleScore(newStories.length, round.index);
+
+      console.log(round)
 
 
     }
@@ -206,6 +211,7 @@ export default class TaskResponseC extends React.Component {
     const { player } = this.props;
 
     if (player) {
+      console.log(player);
       const currentValue = player.round.get("value");
 
       if (!currentValue || currentValue.length == 0) {
