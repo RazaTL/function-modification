@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Centered } from "meteor/empirica:core";
+import Slider from "meteor/empirica:slider";
 
 import {
   Callout, Intent,
@@ -35,10 +36,29 @@ export default class ExitSurvey extends React.Component {
     this.props.onSubmit(this.state);
   };
 
+  renderSlider() {
+    const { player } = this.props;
+    const value = player.round.get("value");
+    return (
+      <Slider
+        min={0}
+        max={5}
+        stepSize={1}
+        labelStepSize={1}
+        onChange={this.handleChange}
+        value={value}
+        hideHandleOnEmpty
+      />
+    );
+  }
+
   render() {
     const { player } = this.props;
     const { age, gender, strength, fair, feedback, education } = this.state;
-    const isFinished = (player.exitStepsDone.length >= 2)
+    const wasOut = (player.exitStepsDone.length >= 2)
+    const notSatisfied = (player.get("isFinished") && player.get("isFinished") == "false");
+    const isFinished = wasOut || notSatisfied;
+    const warning = wasOut ? "The task ended since you were idle or offline for more than 3 minutes." : "You did not satisfy the minimum requirement of writing 1 story per each condition.";
 
     return (
       <Centered>
@@ -58,6 +78,10 @@ export default class ExitSurvey extends React.Component {
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
+              <div>
+                <label htmlFor="age"><b>The first task was enjoyable.</b></label>
+
+              </div>
               <div>
                 <label htmlFor="age"><b>Age</b></label>
                 <div>
@@ -178,7 +202,7 @@ export default class ExitSurvey extends React.Component {
             intent={Intent.DANGER}
             title="Warning"
           >
-            The task ended since you were idle or offline for more than 3 minutes.
+            {warning}. Please email us at <a href="mailto:jyo3on@gmail.com">jyo3on@gmail.com</a> if you had any technical issues.
         </Callout>
       }
       </Centered>
