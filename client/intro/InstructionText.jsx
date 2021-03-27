@@ -14,8 +14,8 @@ export default class InstructionText extends React.Component {
       </span>
     ): (
       <span>
-        <b>In round 2, you will write as many short love stories by editing one of the drafts provided, for 15 minutes (required).</b><br/>
-        <b>In round 1, you will write as many short love stories from scratch, for 15 minutes (required).</b><br/>
+        <b>In round 1, you will write as many short love stories by editing one of the drafts provided, for 15 minutes (required).</b><br/>
+        <b>In round 2, you will write as many short love stories from scratch, for 15 minutes (required).</b><br/>
         <br/>
       </span>
     );
@@ -27,6 +27,7 @@ export default class InstructionText extends React.Component {
           <h3>Task</h3>
           <p className="instruction-text">
             Your task is to write a minimum of 1 short love story (at least 200 words) in each of two rounds.<br/>
+            You must stay in the system for a total of 30 minutes (15 minutes for each round).<br/>
             <br/>
             {text1}
             If you are idle or offline for more than 2 minutes, the task will be suspended and you will NOT get any reward.<br/>
@@ -42,18 +43,18 @@ export default class InstructionText extends React.Component {
             <b>Bonus payment: $1 per additional story or high-quality story</b><br/>
             - Case 1: writing a story that satisfies our high quality criteria.<br/>
             - Case 2: writing a story in addition to the minimum of 1 story in each round.<br/>
-            &nbsp; &nbsp; - Please refer to the examples below.<br/>
+            &nbsp; &nbsp; - Please refer to the examples below for criteria of quality.<br/>
             <br/>
-            ex) Payment for writing 1 high-quality story in round 1 and 1 acceptable stories in round 2 = 4 + 1 * 1 = $5<br/>
-            ex) Payment for writing 2 acceptable stories in round 1 only = $0<br/>
+            ex) Payment for writing 1 quality story in round 1 and 1 quality stories in round 2 = 4 = $4<br/>
+            ex) Payment for writing 4 quality stories in round 1 and 4 quality stories in round 2 = 4 + 6 * 1 = $10<br/>
+            ex) Payment for writing 2 quality stories in round 1 only = $0<br/>
             ex) Payment for writing 1 unacceptable story in round 1 and 1 unacceptable story in round 2 = $0<br/>
-            ex) Payment for writing 4 acceptable stories in round 1 and 4 acceptable stories in round 2 = 4 + 6 * 1 = $10<br/>
           </p>
 
           <h3>Examples</h3>
           <div className="instruction-text examples">
             <div className="good example">
-              <div className="label">Example of a high-quality story</div>
+              <div className="label">Example of a quality story</div>
               Lily was bored. It was Friday night and she had to be at the dance hall in half an hour, but she didn't want to go. She was tired of dancing every night and she didn't like the boys who were always asking her out. Max was there, though, and he always asked her to dance, so Lily decided to stay a little while longer. She liked Max. He was the only one who ever had a conversation with her, and she thought he might ask her out if she stayed long enough.<br/><br/>
 
               "Let's go for a walk," Max suggested as he came up to Lily. "It's hot in here."<br/><br/>
@@ -69,7 +70,20 @@ export default class InstructionText extends React.Component {
               Max laughed at her question: "What makes you think I know so much about myself?" he countered; but his question was not answered because suddenly they realized that they were in love and that everything else had been just talk before that moment when they stood looking at each other in the bright light of a street lamp on Friday night at eleven-thirty when everyone else was dancing and having fun but them...<br/><br/>
 
             </div>
-            <div className="bad example">
+            <div className="good example">
+              <div className="label">Example of a quality story</div>
+              Max and Lily were at a party. They were both bored. They sat on a sofa together.<br/><br/>
+
+              "I'm sorry I'm boring you," Max said.<br/>
+              "Don't be so silly," Lily said, "You’re not boring me at all!"<br/><br/>
+
+              "Let's go for a walk," said Max.<br/>
+              "Yes, let's," Lily answered.<br/><br/>
+
+              So they went out for a walk in the dark street. It was spring and warm enough to walk without an overcoat. They walked very slowly, and they talked about themselves and their friends and what fun it was to be young and in love with somebody. Suddenly Max stopped walking and seized her by the arm. "I think I'm in love with you," he said, in amazement at himself or at her, or both of them together in the night under the trees that smelled like lilac and fresh bread.<br/><br/>
+
+            </div>
+            {/* <div className="bad example">
             <div className="label">Example of a story that will NOT be paid</div>
               <b>Pasting the same phrases or sentences</b>:
               Lily and Max met each other in a party. Then they talked and laughed and talked and laughed and talked and laughed and talked and laughed together.<br/><br/>
@@ -83,7 +97,7 @@ export default class InstructionText extends React.Component {
               <b>Not in english</b>:
               Iaculis, habitant facilisis nullam<br/><br/>
 
-            </div>
+            </div> */}
           </div>
         </div>
     );
