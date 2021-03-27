@@ -3,6 +3,8 @@ import React from "react";
 import Timer from "./Timer.jsx";
 
 export default class PlayerProfile extends React.Component {
+  state = { score: 0 };
+
   renderProfile() {
     const { player } = this.props;
     return (
@@ -21,7 +23,6 @@ export default class PlayerProfile extends React.Component {
       </div>
     );
   }
-
   render() {
     const { stage } = this.props;
 
