@@ -12,8 +12,57 @@ export default class Round extends React.Component {
   timeout = false;
   t1; t2;
 
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      score1: 0,
+      score2: 0,
+    }
+
+    this.handleScore = this.handleScore.bind(this)
+  }
+
+  handleScore(newScore, condition) {
+    const { player } = this.props;
+    const currentScore = player.round.get("score") || {score1: 0, score2: 0};
+
+    if (condition == 0) {
+      player.round.set("score", { score1: newScore, score2: currentScore.score2 } );
+      
+      this.setState(prevState => ({
+        ...prevState,
+        score1: newScore
+      }));
+    }
+    else {
+      player.round.set("score", { score1: currentScore.score1, score2: newScore });
+
+      this.setState(prevState => ({
+        ...prevState,
+        score2: newScore
+      }));
+    }
+  } 
+
+  componentDidMount() {
+    const { player } = this.props;
+
+    if (player) {
+      const currentScore = player.round.get("score") || {score1: 0, score2: 0};
+
+      this.setState(prevState => ({
+        ...prevState,
+        score1: currentScore.score1,
+        score2: currentScore.score2,
+      }))
+
+    }
+  }
+
   render() {
     const { game, round, stage, player } = this.props;
+    const { score1, score2 } = this.state;
 
     if (this.timeout && !(player.idle || !player.online)) {
       clearTimeout(this.t1);
@@ -53,8 +102,8 @@ export default class Round extends React.Component {
         }
         <About {...this.props}/>
         <div className="content">
-          <PlayerProfile player={player} stage={stage} game={game} />
-          <Task game={game} round={round} stage={stage} player={player} />
+          <PlayerProfile player={player} stage={stage} game={game} score1={score1} score2={score2}/>
+          <Task game={game} round={round} stage={stage} player={player}  handleScore={this.handleScore}/>
         </div>
       </div>
     );

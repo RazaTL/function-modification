@@ -75,7 +75,7 @@ body {
     width: 24rem;
     min-height: 100%;
     align-items: center;
-    padding: 3rem 4rem;
+    padding: 3rem;
 
     .profile-avatar {
       width: 8rem;
@@ -83,20 +83,12 @@ body {
       margin: 3rem 0;
     }
 
-    .profile-score {
-      text-align: center;
-      span {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-    }
-
     .timer {
       margin-top: 2rem;
       text-align: center;
 
       .seconds {
-        font-size: 2rem;
+        font-size: 1.8rem;
         // Helvetica has tabular numbers (fixed width), which looks better
         // for a timer, doesn't jump all over the place.
         font-family: Helvetica, Arial, sans-serif;
@@ -312,8 +304,7 @@ button {
 
 .success {
   background-color: #fff;
-}
-.bp3-callout.bp3-intent-success {
-  position: absolute;
   z-index: 999;
+  position: absolute;
+  top: 56px;
 }
