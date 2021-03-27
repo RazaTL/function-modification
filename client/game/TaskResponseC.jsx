@@ -217,7 +217,7 @@ export default class TaskResponseC extends React.Component {
       if (!currentValue || currentValue.length == 0) {
         this.setState(prevState => ({
           ...prevState,
-          stories: [""],
+          stories: [],
         }));
       }
       else {
