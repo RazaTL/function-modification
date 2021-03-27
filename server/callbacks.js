@@ -23,12 +23,12 @@ Empirica.onStageEnd((game, round, stage) => {});
 Empirica.onRoundEnd((game, round) => {
   game.players.forEach(player => {
     const currentScore = player.get("score");
-    console.log(currentScore);
 
-    if (currentScore.score1 == 0) {
-      alert("You did not satisfy the requirement of writing at least 1 story for round 1, so you won't get reward even if you write stories in round 2.")
-    }
+    // if (currentScore.score1 == 0) {
+    //   alert("You did not satisfy the requirement of writing at least 1 story for round 1, so you won't get reward even if you write stories in round 2.")
+    // }
     player.set("score", currentScore);
+    
   })
 });
 
