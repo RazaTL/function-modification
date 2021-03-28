@@ -27,10 +27,12 @@ Empirica.onRoundEnd((game, round) => {
 // It receives the same options as onGameStart.
 Empirica.onGameEnd(game => {
   const score = game.get("score");
+  console.log(score)
     if (score.score1 < 1 || score.score2 < 1) {
       game.players.forEach(player => {
         player.set("isFinished", "false")
       });
+      game.set("score", score);
     }
 });
 

@@ -40,13 +40,13 @@ export default class ExitSurvey extends React.Component {
     const { player } = this.props;
     const { age, gender, strength, fair, feedback, education, task1, task2 } = this.state;
     const wasOut = (player.exitStepsDone.length >= 2)
-    const notSatisfied = (player.get("isFinished") && player.get("isFinished") == "false");
-    const isFinished = wasOut || notSatisfied;
+    const notSatisfied = player.get("isFinished") == "false";
     const warning = wasOut ? "The task ended since you were idle or offline for more than 3 minutes." : "You did not satisfy the minimum requirement of writing 1 story per each condition.";
+
 
     return (
       <Centered>
-      {isFinished ? 
+      {(!wasOut && !notSatisfied) ? 
         
         <div className="exit-survey">
           <h1> Exit Survey (optional) </h1>
