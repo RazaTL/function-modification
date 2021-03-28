@@ -36,25 +36,9 @@ export default class ExitSurvey extends React.Component {
     this.props.onSubmit(this.state);
   };
 
-  renderSlider() {
-    const { player } = this.props;
-    const value = player.round.get("value");
-    return (
-      <Slider
-        min={0}
-        max={5}
-        stepSize={1}
-        labelStepSize={1}
-        onChange={this.handleChange}
-        value={value}
-        hideHandleOnEmpty
-      />
-    );
-  }
-
   render() {
     const { player } = this.props;
-    const { age, gender, strength, fair, feedback, education } = this.state;
+    const { age, gender, strength, fair, feedback, education, task1, task2 } = this.state;
     const wasOut = (player.exitStepsDone.length >= 2)
     const notSatisfied = (player.get("isFinished") && player.get("isFinished") == "false");
     const isFinished = wasOut || notSatisfied;
@@ -66,10 +50,10 @@ export default class ExitSurvey extends React.Component {
         
         <div className="exit-survey">
           <h1> Exit Survey (optional) </h1>
-            <p>
+            <h3>
               Please submit the following code to receive the payment back on Mechanical Turk:{" "}
-              <strong>{player._id}</strong>.
-            </p>
+              <strong>{player._id}</strong>
+            </h3>
             
           <br />
           <p>
@@ -79,8 +63,116 @@ export default class ExitSurvey extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
               <div>
-                <label htmlFor="age"><b>The first task was enjoyable.</b></label>
+                <label htmlFor="task1"><b>The first task was enjoyable.</b></label>
+                <Radio
+                  selected={task1}
+                  name="task1"
+                  value="5"
+                  label="Strongly agree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task1}
+                  name="task1"
+                  value="4"
+                  label="Somewhat agree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task1}
+                  name="task1"
+                  value="3"
+                  label="Neutral"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task1}
+                  name="task1"
+                  value="2"
+                  label="Somewhat disagree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task1}
+                  name="task1"
+                  value="1"
+                  label="Strongly disagree"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="task2"><b>The second task was enjoyable.</b></label>
+                <Radio
+                  selected={task2}
+                  name="task2"
+                  value="5"
+                  label="Strongly agree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task2}
+                  name="task2"
+                  value="4"
+                  label="Somewhat agree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task2}
+                  name="task2"
+                  value="3"
+                  label="Neutral"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task2}
+                  name="task2"
+                  value="2"
+                  label="Somewhat disagree"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={task2}
+                  name="task2"
+                  value="1"
+                  label="Strongly disagree"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-line">
 
+            <div>
+                <label><b>Highest Education Qualification</b></label>
+                <div>
+                  <Radio
+                    selected={education}
+                    name="education"
+                    value="high-school"
+                    label="High School"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={education}
+                    name="education"
+                    value="bachelor"
+                    label="US Bachelor's Degree"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={education}
+                    name="education"
+                    value="master"
+                    label="Master's or higher"
+                    onChange={this.handleChange}
+                  />
+                  <Radio
+                    selected={education}
+                    name="education"
+                    value="other"
+                    label="Other"
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
               <div>
                 <label htmlFor="age"><b>Age</b></label>
@@ -112,41 +204,9 @@ export default class ExitSurvey extends React.Component {
                   />
                 </div>
               </div>
+
             </div>
 
-            <div>
-              <label><b>Highest Education Qualification</b></label>
-              <div>
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="high-school"
-                  label="High School"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="bachelor"
-                  label="US Bachelor's Degree"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="master"
-                  label="Master's or higher"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="other"
-                  label="Other"
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
 
             <div className="form-line thirds">
               <div>
@@ -202,7 +262,7 @@ export default class ExitSurvey extends React.Component {
             intent={Intent.DANGER}
             title="Warning"
           >
-            {warning}. Please email us at <a href="mailto:jyo3on@gmail.com">jyo3on@gmail.com</a> if you had any technical issues.
+            {warning} Please email us at <a href="mailto:jyo3on@gmail.com">jyo3on@gmail.com</a> if you had any technical issues.
         </Callout>
       }
       </Centered>
