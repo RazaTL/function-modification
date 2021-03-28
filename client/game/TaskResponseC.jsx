@@ -5,7 +5,6 @@ import {
 } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 
-
 export default class TaskResponseC extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +18,8 @@ export default class TaskResponseC extends React.Component {
       submitted: false,
     };
   }
+
+  
 
   handleSelect = (id) => {
     if (id >= 0) {

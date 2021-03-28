@@ -10,6 +10,23 @@ import { drafts } from "./constants";
 // and the players. You can also get/set initial values on your game, players,
 // rounds and stages (with get/set methods), that will be able to use later in
 // the game.
+
+
+Array.prototype.shuffle = function() {
+  var currentIndex = this.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = this[currentIndex];
+    this[currentIndex] = this[randomIndex];
+    this[randomIndex] = temporaryValue;
+  }
+  
+  return this;
+}
+
 Empirica.gameInit(game => {
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
@@ -20,7 +37,7 @@ Empirica.gameInit(game => {
   _.times(game.treatment.nRounds, i => {
     const round = game.addRound();
 
-    round.set("drafts", drafts);
+    round.set("drafts", drafts.shuffle());
 
     round.addStage({
       name: "response",
