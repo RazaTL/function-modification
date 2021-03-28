@@ -24,11 +24,12 @@ export default class Round extends React.Component {
   }
 
   handleScore(newScore, condition) {
-    const { player } = this.props;
-    const currentScore = player.round.get("score") || {score1: 0, score2: 0};
+    const { player, game } = this.props;
+    const currentScore = player.get("scores") || {score1: 0, score2: 0};
 
     if (condition == 0) {
-      player.round.set("score", { score1: newScore, score2: currentScore.score2 } );
+      player.set("scores", { score1: newScore, score2: currentScore.score2 } );
+      game.set("score", { score1: newScore, score2: currentScore.score2 } );
       
       this.setState(prevState => ({
         ...prevState,
@@ -36,7 +37,8 @@ export default class Round extends React.Component {
       }));
     }
     else {
-      player.round.set("score", { score1: currentScore.score1, score2: newScore });
+      player.set("scores", { score1: currentScore.score1, score2: newScore });
+      game.set("score", { score1: currentScore.score1, score2: newScore });
 
       this.setState(prevState => ({
         ...prevState,
@@ -46,10 +48,11 @@ export default class Round extends React.Component {
   } 
 
   componentDidMount() {
-    const { player } = this.props;
+    const { player, game } = this.props;
 
     if (player) {
-      const currentScore = player.round.get("score") || {score1: 0, score2: 0};
+      // const currentScore = player.get("scores") || {score1: 0, score2: 0};
+      const currentScore = game.get("score") || {score1: 0, score2: 0};
 
       this.setState(prevState => ({
         ...prevState,
@@ -78,6 +81,7 @@ export default class Round extends React.Component {
         alert("If you are idle or offline for more than 3 minutes, the task will be cancelled.")
       }, 1 * 60 * 1000);
 
+      // TODO: change this to 3 minutes
       this.t2 = setTimeout(() => {
         if (player.idle || !player.online) {
           localStorage.setItem("confirmed", "");

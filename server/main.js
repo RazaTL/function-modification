@@ -13,7 +13,8 @@ import { drafts } from "./constants";
 Empirica.gameInit(game => {
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
-    player.set("score", 0);
+    player.set("score", {score1: 0, score2: 0});
+    console.log("gameinit");
   });
 
   _.times(game.treatment.nRounds, i => {

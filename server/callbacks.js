@@ -21,26 +21,17 @@ Empirica.onStageEnd((game, round, stage) => {});
 // onRoundEnd is triggered after each round.
 // It receives the same options as onGameEnd, and the round that just ended.
 Empirica.onRoundEnd((game, round) => {
-  game.players.forEach(player => {
-    const currentScore = player.get("score");
-
-    // if (currentScore.score1 == 0) {
-    //   alert("You did not satisfy the requirement of writing at least 1 story for round 1, so you won't get reward even if you write stories in round 2.")
-    // }
-    player.set("score", currentScore);
-    
-  })
 });
 
 // onGameEnd is triggered when the game ends.
 // It receives the same options as onGameStart.
 Empirica.onGameEnd(game => {
-  game.players.forEach(player => {
-    const score = player.get("score");
+  const score = game.get("score");
     if (score.score1 < 1 || score.score2 < 1) {
-      player.set("isFinished", "false")
+      game.players.forEach(player => {
+        player.set("isFinished", "false")
+      });
     }
-  })
 });
 
 // ===========================================================================
