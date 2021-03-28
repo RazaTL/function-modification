@@ -72,7 +72,7 @@ export default class TaskResponse extends React.Component {
 
       player.round.set("value", newStories);
       this.props.handleScore(newStories.length - 1, round.index);
-      // player.round.set("score", newStories.length);
+      // player.round.set("scores", newStories.length);
 
     }
   }

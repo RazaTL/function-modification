@@ -142,12 +142,8 @@ export default class TaskResponseC extends React.Component {
         }, 4000)
       });
 
-      console.log(newStories.length)
       player.round.set("value", newStories);
       this.props.handleScore(newStories.length, round.index);
-
-      console.log(round)
-
 
     }
   }
@@ -208,11 +204,13 @@ export default class TaskResponseC extends React.Component {
   }
 
   componentDidMount() {
-    const { player } = this.props;
+    const { player, game } = this.props;
 
     if (player) {
-      console.log(player);
       const currentValue = player.round.get("value");
+
+      console.log(player.get("score"));
+      console.log(game.get("score"));
 
       if (!currentValue || currentValue.length == 0) {
         this.setState(prevState => ({
