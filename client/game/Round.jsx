@@ -24,11 +24,12 @@ export default class Round extends React.Component {
   }
 
   handleScore(newScore, condition) {
-    const { player, game } = this.props;
-    const currentScore = player.get("scores") || {score1: 0, score2: 0};
+    const { game } = this.props;
+    const currentScore = game.get("score") || {score1: 0, score2: 0};
+
+    console.log(currentScore);
 
     if (condition == 0) {
-      player.set("scores", { score1: newScore, score2: currentScore.score2 } );
       game.set("score", { score1: newScore, score2: currentScore.score2 } );
       
       this.setState(prevState => ({
@@ -37,7 +38,6 @@ export default class Round extends React.Component {
       }));
     }
     else {
-      player.set("scores", { score1: currentScore.score1, score2: newScore });
       game.set("score", { score1: currentScore.score1, score2: newScore });
 
       this.setState(prevState => ({
