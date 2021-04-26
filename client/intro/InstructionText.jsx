@@ -8,14 +8,14 @@ export default class InstructionText extends React.Component {
 
     const text1 = (!game || game.treatment.order == 0) ? (
       <span>
-        <b>In round 1, you will write as many short love stories from scratch, for 15 minutes (required).</b><br/>
-        <b>In round 2, you will write as many short love stories by editing one of the drafts provided, for 15 minutes (required).</b><br/>
+        <b>In round 1, you create a function that accomplishes a given task while incorporating functions from Java code that is given to you. (required).</b><br/>
+        <b>In round 2, you will do the same task as in round 1, but this time the code given to you has comments about the functionality of the code. (required).</b><br/>
         <br/>
       </span>
     ): (
       <span>
-        <b>In round 1, you will write as many short love stories by editing one of the drafts provided, for 15 minutes (required).</b><br/>
-        <b>In round 2, you will write as many short love stories from scratch, for 15 minutes (required).</b><br/>
+        <b>In round 1, you create a function that accomplishes a given task while incorporating functions from Java code that is given to you. (required).</b><br/>
+        <b>In round 2, you will do the same task as in round 1, but this time the code given to you has comments about the functionality of the code. (required).</b><br/>
         <br/>
       </span>
     );
@@ -26,7 +26,7 @@ export default class InstructionText extends React.Component {
 
           <h3>Task</h3>
           <p className="instruction-text">
-            Your task is to write a minimum of 1 short love story (at least 200 words) in each of two rounds.<br/>
+            Your task is to create a minimum of 1 function in each of two rounds.<br/>
             You must stay in the system for a total of 30 minutes (15 minutes for each round).<br/>
             <br/>
             {text1}
@@ -36,52 +36,27 @@ export default class InstructionText extends React.Component {
 
           <h3>Payment</h3>
           <p className="instruction-text">
-            <b>Base payment: $4 for participation</b><br/>
-            - Requirement: writing a minimum of 1 story in each of two rounds that meets our minimum quality criteria.<br/>
-            &nbsp; &nbsp; - Length: at least 200 words <br/>
+            <b>Base payment: $x for participation</b><br/>
+            - Requirement: writing a minimum of 1 function in each of two rounds that meets our minimum quality criteria.<br/>
+            &nbsp; &nbsp; - Length: at least 10 lines <br/>
             <br/>
-            <b>Bonus payment: $1 per additional story or high-quality story</b><br/>
-            - Case 1: writing a story that satisfies our high quality criteria.<br/>
-            - Case 2: writing a story in addition to the minimum of 1 story in each round.<br/>
+            <b>Bonus payment: $1 per additional function</b><br/>
+            - Case 1: [high quality function]<br/>
+            - Case 2: [any additional function]]<br/>
             &nbsp; &nbsp; - Please refer to the examples below for criteria of quality.<br/>
             <br/>
-            ex) Payment for writing 1 quality story in round 1 and 1 quality stories in round 2 = 4 = $4<br/>
-            ex) Payment for writing 4 quality stories in round 1 and 4 quality stories in round 2 = 4 + 6 * 1 = $10<br/>
-            ex) Payment for writing 2 quality stories in round 1 only = $0<br/>
-            ex) Payment for writing 1 unacceptable story in round 1 and 1 unacceptable story in round 2 = $0<br/>
+            ex) [List examples of different high quality functions in different rounds like Jaeyoon]
           </p>
 
           <h3>Examples</h3>
           <div className="instruction-text examples">
             <div className="good example">
-              <div className="label">Example of a quality story</div>
-              Lily was bored. It was Friday night and she had to be at the dance hall in half an hour, but she didn't want to go. She was tired of dancing every night and she didn't like the boys who were always asking her out. Max was there, though, and he always asked her to dance, so Lily decided to stay a little while longer. She liked Max. He was the only one who ever had a conversation with her, and she thought he might ask her out if she stayed long enough.<br/><br/>
-
-              "Let's go for a walk," Max suggested as he came up to Lily. "It's hot in here."<br/><br/>
-
-              "All right," Lily said gladly. "But I have to be back by ten."<br/><br/>
-
-              They walked up and down the avenue, talking comfortably about everything and anything, until finally they found themselves looking at each other with amused grins on their faces.<br/><br/>
-
-              "We've been through this before," Max said, indicating all that they had talked about on their walk up the avenue; then he added: "But isn't it funny how you can enjoy talking about yourself?"<br/><br/>
-
-              "Yes," Lily admitted; "it is funny." Then she asked him: "What makes you think you know so much about me?"<br/><br/>
-
-              Max laughed at her question: "What makes you think I know so much about myself?" he countered; but his question was not answered because suddenly they realized that they were in love and that everything else had been just talk before that moment when they stood looking at each other in the bright light of a street lamp on Friday night at eleven-thirty when everyone else was dancing and having fun but them...<br/><br/>
-
+              <div className="label">Example of a quality function</div>
+              [Example of Java formatted function]<br></br>
             </div>
             <div className="good example">
-              <div className="label">Example of a quality story</div>
-              Max and Lily were at a party. They were both bored. They sat on a sofa together.<br/><br/>
-
-              "I'm sorry I'm boring you," Max said.<br/>
-              "Don't be so silly," Lily said, "You’re not boring me at all!"<br/><br/>
-
-              "Let's go for a walk," said Max.<br/>
-              "Yes, let's," Lily answered.<br/><br/>
-
-              So they went out for a walk in the dark street. It was spring and warm enough to walk without an overcoat. They walked very slowly, and they talked about themselves and their friends and what fun it was to be young and in love with somebody. Suddenly Max stopped walking and seized her by the arm. "I think I'm in love with you," he said, in amazement at himself or at her, or both of them together in the night under the trees that smelled like lilac and fresh bread.<br/><br/>
-
+              <div className="label">Example of a quality function</div>
+              [Example of Pseudocode function]<br></br>
             </div>
             {/* <div className="bad example">
             <div className="label">Example of a story that will NOT be paid</div>

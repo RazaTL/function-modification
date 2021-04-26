@@ -171,7 +171,7 @@ export default class TaskResponse extends React.Component {
               title="Success"
             >
               Successfully submitted. Thank you so much. Enjoy writing your next
-              story!
+              function!
             </Callout>
           </div>
         ) : (

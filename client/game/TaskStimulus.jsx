@@ -10,7 +10,7 @@ export default class TaskStimulus extends React.Component {
         Round {round.index + 1}.
         {showA ? (
           <div>
-            <b>Please write a short love story.</b> <br />
+            <b>Please write a function implementing the following code.</b> <br />
             You have 15 minutes.
             <br />
             You can refer to the instructions by clicking on the button on the

@@ -13,7 +13,7 @@ export default class Quiz extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    if (this.state.sum !== "max" || this.state.horse !== "30") {
+    if (this.state.sum !== "fib" || this.state.horse !== "30") {
       alert("Incorrect! Read the instructions, and please try again.");
     } else {
       this.props.onNext();
@@ -29,13 +29,13 @@ export default class Quiz extends React.Component {
           <h1> Quiz </h1>
           <form onSubmit={this.handleSubmit}>
             <p>
-              <label htmlFor="sum">What was the name of the male character in the example stories?</label>
+              <label htmlFor="sum">What was the name of the example function?</label>
               <input
                 type="text"
                 dir="auto"
                 id="sum"
                 name="sum"
-                placeholder="e.g. John"
+                placeholder="e.g. bfs"
                 value={sum}
                 onChange={this.handleChange}
                 autoComplete="off"
@@ -44,7 +44,7 @@ export default class Quiz extends React.Component {
             </p>
             <p>
               <label htmlFor="horse">
-                You must write as many stories as you can for XX minutes in total. What is the correct number for XX?
+                You must stay in the system for XX minutes in total. What is the correct number for XX?
               </label>
               <input
                 type="text"
