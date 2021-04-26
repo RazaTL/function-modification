@@ -1,10 +1,7 @@
 import React from "react";
 
-import {
-  Callout, Intent,
-} from "@blueprintjs/core";
+import { Callout, Intent } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
-
 
 export default class TaskResponse extends React.Component {
   constructor(props) {
@@ -18,25 +15,26 @@ export default class TaskResponse extends React.Component {
     };
   }
 
-
-  handleChange = event => {
+  handleChange = (event) => {
     const { stories } = this.state;
     const { player } = this.props;
-    const value = event.target.value
+    const value = event.target.value;
 
     const newNum = this.countWords(value);
     const newStories = [...stories];
     newStories[stories.length - 1] = value;
 
-    this.setState(prevState => ({
+    this.setState(
+      (prevState) => ({
         ...prevState,
         numOfWords: newNum,
         stories: newStories,
-    }), () => {
-      player.round.set("value", newStories);
-    });
+      }),
+      () => {
+        player.round.set("value", newStories);
+      }
+    );
   };
-
 
   handleNext = (e) => {
     e.preventDefault();
@@ -44,38 +42,39 @@ export default class TaskResponse extends React.Component {
     const { numOfWords, stories } = this.state;
     const { player, round } = this.props;
 
-    if (numOfWords < 200)
-      alert("The story is less than 200 words.");
-    else {
-      // add story to state array
-      const newStories = [...stories, ""]
-      
-      this.setState(prevState => ({
+    // if (numOfWords < 200) alert("The story is less than 200 words.");
+    // else {
+    // add story to state array
+    const newStories = [...stories, ""];
+
+    this.setState(
+      (prevState) => ({
         ...prevState,
         stories: newStories,
         submitted: true,
         numOfWords: 0,
-      }), () => {
+      }),
+      () => {
         setTimeout(() => {
           if (this.state.submitted) {
-            this.setState(prevState => ({
+            this.setState((prevState) => ({
               ...prevState,
               submitted: false,
-            }))
+            }));
           }
-        }, 4000)
-      });
+        }, 4000);
+      }
+    );
 
-      console.log(newStories)
-      console.log(newStories.length)
-      console.log(this.props);
+    console.log(newStories);
+    console.log(newStories.length);
+    console.log(this.props);
 
-      player.round.set("value", newStories);
-      this.props.handleScore(newStories.length - 1, round.index);
-      // player.round.set("scores", newStories.length);
-
-    }
-  }
+    player.round.set("value", newStories);
+    this.props.handleScore(newStories.length - 1, round.index);
+    // player.round.set("scores", newStories.length);
+    // }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -86,16 +85,15 @@ export default class TaskResponse extends React.Component {
 
   countWords = (str) => {
     const result = str.trim().split(/\s+/);
-    if (result == "")
-      return 0;
+    if (result == "") return 0;
     return result.length;
-  }
+  };
 
   renderSubmitted() {
     return (
       <div className="task-response">
         <div className="response-submitted">
-        <h5>You already submitted the story in this stage.</h5>
+          <h5>You already submitted the story in this stage.</h5>
         </div>
       </div>
     );
@@ -104,8 +102,8 @@ export default class TaskResponse extends React.Component {
   renderTextarea(story, index) {
     const { stories } = this.state;
     // if (stories.length == 0)
-      // isActive = (stories.length )
-    const isActive = (stories.length - 1 == index) ? "active " : "";
+    // isActive = (stories.length )
+    const isActive = stories.length - 1 == index ? "active " : "";
 
     return (
       <textarea
@@ -113,8 +111,7 @@ export default class TaskResponse extends React.Component {
         value={story}
         key={index}
         className={isActive + "story story" + index}
-      >
-      </textarea>
+      ></textarea>
     );
   }
 
@@ -127,29 +124,28 @@ export default class TaskResponse extends React.Component {
       const currentValue = player.round.get("value");
 
       if (!currentValue || currentValue.length == 0) {
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
           ...prevState,
           stories: [""],
         }));
-      }
-      else {
-        this.setState(prevState => ({
+      } else {
+        this.setState((prevState) => ({
           ...prevState,
           stories: currentValue,
         }));
       }
       console.log(currentValue);
     }
-    
+
     if (document.querySelector(".story.active")) {
-      const newNum = this.countWords(document.querySelector(".story.active").value)
-      this.setState(prevState => ({
+      const newNum = this.countWords(
+        document.querySelector(".story.active").value
+      );
+      this.setState((prevState) => ({
         ...prevState,
         numOfWords: newNum,
       }));
     }
-
-    
   }
 
   render() {
@@ -167,29 +163,54 @@ export default class TaskResponse extends React.Component {
 
     return (
       <div className="task-response">
-        {
-          submitted ? 
+        {submitted ? (
           <div className="success">
             <Callout
-                icon={IconNames.TICK}
-                intent={Intent.SUCCESS}
-                title="Success"
-              >
-                Successfully submitted. Thank you so much. Enjoy writing your next story!
+              icon={IconNames.TICK}
+              intent={Intent.SUCCESS}
+              title="Success"
+            >
+              Successfully submitted. Thank you so much. Enjoy writing your next
+              story!
             </Callout>
           </div>
-          :
+        ) : (
           ""
-        }
+        )}
+        <div className="task-response-form">
+          <div className="selected-draft">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Quibusdam saepe veritatis eaque ipsa laboriosam voluptas sint
+              perspiciatis tempore nesciunt ad! Suscipit sint voluptas non
+              explicabo minus molestiae sapiente fugit, maiores delectus
+              doloremque qui blanditiis facere sed error et illum quos
+              aspernatur ipsam. Accusantium maiores tenetur, laboriosam,
+              molestias unde vero repellendus possimus ipsam omnis error alias?
+              Modi accusantium vero itaque harum est ex ullam aperiam blanditiis
+              cupiditate! Error blanditiis iure maiores nemo omnis nesciunt
+              cumque esse dolorum magni voluptatem perferendis deserunt
+              reiciendis dolore placeat maxime est asperiores rerum expedita,
+              libero consequatur. Nostrum, exercitationem. Quis libero labore
+              iste totam consectetur magni distinctio itaque sed eum vitae
+              excepturi ut natus harum doloribus fuga dolor dolore, inventore
+              sit vel provident!
+            </p>
+          </div>
+        </div>
         <form className="task-response-form" onSubmit={this.handleSubmit}>
           {stories.map((s, i) => this.renderTextarea(s, i))}
 
           <div>Total {numOfWords} words</div>
 
-          <button ref={this.submitBtnRef} className="hidden" type="submit">Submit</button>
-          <button className="green" onClick={this.handleNext}>Submit (Start writing next story)</button>
+          <button ref={this.submitBtnRef} className="hidden" type="submit">
+            Submit
+          </button>
+
+          <button className="green" onClick={this.handleNext}>
+            Submit (Start writing next story)
+          </button>
         </form>
-        
       </div>
     );
   }
