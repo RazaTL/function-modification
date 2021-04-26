@@ -19,11 +19,10 @@ export default class TaskStimulus extends React.Component {
         ) : (
           <div>
             <b>
-              Please write a short love story (at least 200 words) by editing a
-              draft.
+              Please write a function using one of the commented pieces of code.
             </b>{" "}
             <br />
-            If the draft below is unsatisfying, you can skip it and read a new
+            If the comments below are unsatisfying, you can skip it and read a new
             one by clicking on the "Skip this draft" button.
             <br />
             You can always choose to use or view the previous drafts using the

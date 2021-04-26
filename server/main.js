@@ -41,7 +41,7 @@ Empirica.gameInit(game => {
 
     round.addStage({
       name: "response",
-      displayName: "Writing a short love story",
+      displayName: "Writing a function",
       durationInSeconds: game.treatment.stageDuration
     });
   });

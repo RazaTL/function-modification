@@ -191,7 +191,7 @@ export default class TaskResponseC extends React.Component {
     return (
       <div className="task-response">
         <div className="response-submitted">
-          <h5>You already submitted the story in this stage.</h5>
+          <h5>You already submitted the function in this stage.</h5>
         </div>
       </div>
     );
@@ -277,145 +277,14 @@ export default class TaskResponseC extends React.Component {
         {confirmed ? (
           <div style={{ width: "70%" }}>
             <div className="task-response-form">
-              {/* <div className="selected-draft">{drafts[selected].content}</div> */}
-              <div
-                className="selected-draft"
+              <div className="selected-draft" style={{maxHeight: "20vh", overflow: "auto"}} >{drafts[selected].content}</div>
+              {/* <div
                 style={{ maxHeight: "60vh", overflow: "auto" }}
               >
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quidem possimus ut beatae, pariatur nesciunt, vel magnam
-                  adipisci sint veritatis odit ducimus totam quis deserunt ipsa
-                  et nemo maiores eius dicta doloremque repellat ea! Nihil
-                  nostrum molestiae sapiente error impedit quo beatae,
-                  perspiciatis repellat totam quos? Enim voluptatum voluptate
-                  adipisci, quo voluptatem cum, voluptatibus eos, architecto
-                  iure minima asperiores! Maxime fugit magni iusto ipsum ducimus
-                  alias facilis quidem distinctio minus incidunt ipsam quae
-                  nihil aut laborum dolorem delectus sequi porro voluptatum
-                  reiciendis, atque neque, fugiat itaque. Eos iusto earum
-                  blanditiis praesentium maxime minus consectetur, odit at vel
-                  numquam deserunt dolorem repellat! Autem alias, dolore nisi et
-                  cupiditate deserunt incidunt omnis eligendi esse consectetur
-                  atque blanditiis illo maxime rem dolorum perferendis, quis
-                  ipsum quos doloribus? Aliquam saepe hic illo. Tempora corrupti
-                  vel, explicabo sed consequuntur libero eum cum deleniti rem
-                  assumenda optio magnam accusamus odio quos distinctio deserunt
-                  consectetur ducimus perspiciatis repellat tenetur beatae
-                  aliquam? Iste illo pariatur qui rerum odio in blanditiis
-                  nesciunt doloribus repellendus tenetur. Sequi obcaecati vitae
-                  mollitia, tenetur deleniti unde, nisi quam, necessitatibus
-                  consequuntur consectetur facilis eos dolorem reprehenderit.
-                  Voluptates ratione et ipsa. Accusantium laboriosam explicabo
-                  ducimus. Molestias distinctio voluptas, libero reiciendis
-                  corporis ipsum labore qui voluptate aperiam placeat, omnis
-                  odio! Cupiditate facilis expedita magnam, consectetur minima
-                  placeat recusandae magni beatae, nulla dolore eveniet hic?
-                  Pariatur nostrum dicta dolores, facilis exercitationem optio
-                  laboriosam molestiae porro alias animi nam libero sed
-                  accusamus dolor illo architecto cupiditate nulla voluptatem
-                  voluptatum id perferendis eligendi itaque quis. Officiis
-                  fugiat rerum aperiam consectetur. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Quidem possimus ut beatae,
-                  pariatur nesciunt, vel magnam adipisci sint veritatis odit
-                  ducimus totam quis deserunt ipsa et nemo maiores eius dicta
-                  doloremque repellat ea! Nihil nostrum molestiae sapiente error
-                  impedit quo beatae, perspiciatis repellat totam quos? Enim
-                  voluptatum voluptate adipisci, quo voluptatem cum,
-                  voluptatibus eos, architecto iure minima asperiores! Maxime
-                  fugit magni iusto ipsum ducimus alias facilis quidem
-                  distinctio minus incidunt ipsam quae nihil aut laborum dolorem
-                  delectus sequi porro voluptatum reiciendis, atque neque,
-                  fugiat itaque. Eos iusto earum blanditiis praesentium maxime
-                  minus consectetur, odit at vel numquam deserunt dolorem
-                  repellat! Autem alias, dolore nisi et cupiditate deserunt
-                  incidunt omnis eligendi esse consectetur atque blanditiis illo
-                  maxime rem dolorum perferendis, quis ipsum quos doloribus?
-                  Aliquam saepe hic illo. Tempora corrupti vel, explicabo sed
-                  consequuntur libero eum cum deleniti rem assumenda optio
-                  magnam accusamus odio quos distinctio deserunt consectetur
-                  ducimus perspiciatis repellat tenetur beatae aliquam? Iste
-                  illo pariatur qui rerum odio in blanditiis nesciunt doloribus
-                  repellendus tenetur. Sequi obcaecati vitae mollitia, tenetur
-                  deleniti unde, nisi quam, necessitatibus consequuntur
-                  consectetur facilis eos dolorem reprehenderit. Voluptates
-                  ratione et ipsa. Accusantium laboriosam explicabo ducimus.
-                  Molestias distinctio voluptas, libero reiciendis corporis
-                  ipsum labore qui voluptate aperiam placeat, omnis odio!
-                  Cupiditate facilis expedita magnam, consectetur minima placeat
-                  recusandae magni beatae, nulla dolore eveniet hic? Pariatur
-                  nostrum dicta dolores, facilis exercitationem optio laboriosam
-                  molestiae porro alias animi nam libero sed accusamus dolor
-                  illo architecto cupiditate nulla voluptatem voluptatum id
-                  perferendis eligendi itaque quis. Officiis fugiat rerum
-                  aperiam consectetur. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Quidem possimus ut beatae, pariatur
-                  nesciunt, vel magnam adipisci sint veritatis odit ducimus
-                  totam quis deserunt ipsa et nemo maiores eius dicta doloremque
-                  repellat ea! Nihil nostrum molestiae sapiente error impedit
-                  quo beatae, perspiciatis repellat totam quos? Enim voluptatum
-                  voluptate adipisci, quo voluptatem cum, voluptatibus eos,
-                  architecto iure minima asperiores! Maxime fugit magni iusto
-                  ipsum ducimus alias facilis quidem distinctio minus incidunt
-                  ipsam quae nihil aut laborum dolorem delectus sequi porro
-                  voluptatum reiciendis, atque neque, fugiat itaque. Eos iusto
-                  earum blanditiis praesentium maxime minus consectetur, odit at
-                  vel numquam deserunt dolorem repellat! Autem alias, dolore
-                  nisi et cupiditate deserunt incidunt omnis eligendi esse
-                  consectetur atque blanditiis illo maxime rem dolorum
-                  perferendis, quis ipsum quos doloribus? Aliquam saepe hic
-                  illo. Tempora corrupti vel, explicabo sed consequuntur libero
-                  eum cum deleniti rem assumenda optio magnam accusamus odio
-                  quos distinctio deserunt consectetur ducimus perspiciatis
-                  repellat tenetur beatae aliquam? Iste illo pariatur qui rerum
-                  odio in blanditiis nesciunt doloribus repellendus tenetur.
-                  Sequi obcaecati vitae mollitia, tenetur deleniti unde, nisi
-                  quam, necessitatibus consequuntur consectetur facilis eos
-                  dolorem reprehenderit. Voluptates ratione et ipsa. Accusantium
-                  laboriosam explicabo ducimus. Molestias distinctio voluptas,
-                  libero reiciendis corporis ipsum labore qui voluptate aperiam
-                  placeat, omnis odio! Cupiditate facilis expedita magnam,
-                  consectetur minima placeat recusandae magni beatae, nulla
-                  dolore eveniet hic? Pariatur nostrum dicta dolores, facilis
-                  exercitationem optio laboriosam molestiae porro alias animi
-                  nam libero sed accusamus dolor illo architecto cupiditate
-                  nulla voluptatem voluptatum id perferendis eligendi itaque
-                  quis. Officiis fugiat rerum aperiam consectetur. Lorem ipsum
-                  dolor sit amet consectetur adipisicing elit. Quidem possimus
-                  ut beatae, pariatur nesciunt, vel magnam adipisci sint
-                  veritatis odit ducimus totam quis deserunt ipsa et nemo
-                  maiores eius dicta doloremque repellat ea! Nihil nostrum
-                  molestiae sapiente error impedit quo beatae, perspiciatis
-                  repellat totam quos? Enim voluptatum voluptate adipisci, quo
-                  voluptatem cum, voluptatibus eos, architecto iure minima
-                  asperiores! Maxime fugit magni iusto ipsum ducimus alias
-                  facilis quidem distinctio minus incidunt ipsam quae nihil aut
-                  laborum dolorem delectus sequi porro voluptatum reiciendis,
-                  atque neque, fugiat itaque. Eos iusto earum blanditiis
-                  praesentium maxime minus consectetur, odit at vel numquam
-                  deserunt dolorem repellat! Autem alias, dolore nisi et
-                  cupiditate deserunt incidunt omnis eligendi esse consectetur
-                  atque blanditiis illo maxime rem dolorum perferendis, quis
-                  ipsum quos doloribus? Aliquam saepe hic illo. Tempora corrupti
-                  vel, explicabo sed consequuntur libero eum cum deleniti rem
-                  assumenda optio magnam accusamus odio quos distinctio deserunt
-                  consectetur ducimus perspiciatis repellat tenetur beatae
-                  aliquam? Iste illo pariatur qui rerum odio in blanditiis
-                  nesciunt doloribus repellendus tenetur. Sequi obcaecati vitae
-                  mollitia, tenetur deleniti unde, nisi quam, necessitatibus
-                  consequuntur consectetur facilis eos dolorem reprehenderit.
-                  Voluptates ratione et ipsa. Accusantium laboriosam explicabo
-                  ducimus. Molestias distinctio voluptas, libero reiciendis
-                  corporis ipsum labore qui voluptate aperiam placeat, omnis
-                  odio! Cupiditate facilis expedita magnam, consectetur minima
-                  placeat recusandae magni beatae, nulla dolore eveniet hic?
-                  Pariatur nostrum dicta dolores, facilis exercitationem optio
-                  laboriosam molestiae porro alias animi nam libero sed
-                  accusamus dolor illo architecto cupiditate nulla voluptatem
-                  voluptatum id perferendis eligendi itaque quis. Officiis
-                  fugiat rerum aperiam consectetur.
                 </p>
-              </div>
+              </div> */}
             </div>
             <form className="task-response-form" onSubmit={this.handleSubmit}>
               {stories.map((s, i) => this.renderTextarea(s, i))}
@@ -425,7 +294,7 @@ export default class TaskResponseC extends React.Component {
                 Submit
               </button>
               <button className="green" onClick={this.handleNext}>
-                Submit (Start writing next story)
+                Submit (Start writing next function)
               </button>
               <button className="orange" onClick={this.handleBack}>
                 Go back to choose a different draft
