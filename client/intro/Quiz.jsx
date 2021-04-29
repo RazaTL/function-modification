@@ -44,7 +44,7 @@ export default class Quiz extends React.Component {
             </p>
             <p>
               <label htmlFor="horse">
-                You must stay in the system for XX minutes in total. What is the correct number for XX?
+                You must stay in the system for XX minutes in total or solve correctly the 3 rounds. What is the correct number for XX?
               </label>
               <input
                 type="text"
