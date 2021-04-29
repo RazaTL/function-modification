@@ -26,29 +26,24 @@ export default class InstructionText extends React.Component {
 
           <h3>Task</h3>
           <p className="instruction-text">
-            Your task is to create a minimum of 1 function in each of two rounds.<br/>
-            You must stay in the system for a total of 30 minutes (15 minutes for each round).<br/>
-            <br/>
-            {text1}
+            
+            Your task is to modify a simple piece of code in java in order to achieve an indicated functionality. <br/>
+            There will be three rounds <br/>
+            You must stay in the system for a total of 30 minutes or finish the three rounds successfully.   
+      
             If you are idle or offline for more than 2 minutes, the task will be suspended and you will NOT get any reward.<br/>
-            After completing the two rounds, you will get a code. If you submit this code back at Mechanical Turk, you're done!
+            After completing the three rounds, you will get a code. If you submit this code back at Mechanical Turk, you're done!
           </p>
 
           <h3>Payment</h3>
           <p className="instruction-text">
-            <b>Base payment: $x for participation</b><br/>
-            - Requirement: writing a minimum of 1 function in each of two rounds that meets our minimum quality criteria.<br/>
-            &nbsp; &nbsp; - Length: at least 10 lines <br/>
+            <b>Base payment: $4 for participation</b><br/>
+            - Requirement: modify code in the three rounds in a non gibbersih functional manner.<br/>
             <br/>
-            <b>Bonus payment: $1 per additional function</b><br/>
-            - Case 1: [high quality function]<br/>
-            - Case 2: [any additional function]]<br/>
-            &nbsp; &nbsp; - Please refer to the examples below for criteria of quality.<br/>
-            <br/>
-            ex) [List examples of different high quality functions in different rounds like Jaeyoon]
+            <b>Bonus payment: $2 per function which achieves desired functionality successfully</b><br/>
           </p>
-
-          <h3>Examples</h3>
+          
+      {/*<h3>Examples</h3>
           <div className="instruction-text examples">
             <div className="good example">
               <div className="label">Example of a quality function</div>
@@ -58,6 +53,7 @@ export default class InstructionText extends React.Component {
               <div className="label">Example of a quality function</div>
               [Example of Pseudocode function]<br></br>
             </div>
+            */}
             {/* <div className="bad example">
             <div className="label">Example of a story that will NOT be paid</div>
               <b>Pasting the same phrases or sentences</b>:
