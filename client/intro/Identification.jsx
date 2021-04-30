@@ -1,61 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Centered } from "meteor/empirica:core";
 
 export default class Identification extends Component {
-    state = { id: "" };
-    
-    // Update the stored state of the id
-    handleUpdate = event => {
-        const { value, name } = event.currentTarget;
-        this.setState({ [name]: value });
-    };
-    
-    // Submit the id when submit button is clicked
-    handleSubmit = event => {
-        event.preventDefault();
+  state = { id: "" };
 
-        const { handleNewPlayer } = this.props;
-        const { id } = this.state;
-        handleNewPlayer(id);
-    };
+  // Update the stored state of the id
+  handleUpdate = (event) => {
+    const { value, name } = event.currentTarget;
+    this.setState({ [name]: value });
+  };
 
-    render() {
-        const { id } = this.state;
+  // Submit the id when submit button is clicked
+  handleSubmit = (event) => {
+    event.preventDefault();
 
-        return (
-            <Centered>
-                <div className="new-player">
-                    <form onSubmit={this.handleSubmit}>
-                        <h1>Identification</h1>
+    const { handleNewPlayer } = this.props;
+    const { id } = this.state;
+    handleNewPlayer(id);
+  };
 
-                        <p>
-                            Please enter your Worker ID:
-                        </p>
+  render() {
+    const { id } = this.state;
 
-                        <input
-                            className="bp3-input"
-                            dir="auto"
-                            type="text"
-                            name="id"
-                            id="id"
-                            value={id}
-                            onChange={this.handleUpdate}
-                            placeholder="e.g. A1HXXXXXXXXX"
-                            required
-                            autoComplete="off"
-                        />
+    return (
+      <Centered>
+        <div className="new-player">
+          <form onSubmit={this.handleSubmit}>
+            <h1>Identification</h1>
 
-                        <div>
-                            <small>You can find your Worker ID on the top left corner of mTurk website.</small><br/><br/>
-                        </div>
+            <p>Please enter your Worker ID:</p>
 
-                        <p className="button-holder">
-                            <button type="submit">Submit</button>
-                        </p>
+            <input
+              className="bp3-input"
+              dir="auto"
+              type="text"
+              name="id"
+              id="id"
+              value={id}
+              onChange={this.handleUpdate}
+              placeholder="e.g. A1HXXXXXXXXX"
+              required
+              autoComplete="off"
+            />
 
-                    </form>
-                </div>
-            </Centered>
-        )
-    }
+            <div>
+              <small>
+                You can find your Worker ID on the top left corner of mTurk
+                website.
+              </small>
+              <br />
+              <br />
+            </div>
+
+            <p className="button-holder">
+              <button type="submit">Submit</button>
+            </p>
+          </form>
+        </div>
+      </Centered>
+    );
+  }
 }

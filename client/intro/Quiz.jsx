@@ -5,12 +5,12 @@ import { Centered } from "meteor/empirica:core";
 export default class Quiz extends React.Component {
   state = { sum: "", horse: "" };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const el = event.currentTarget;
     this.setState({ [el.name]: el.value.trim().toLowerCase() });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     if (this.state.sum !== "fib" || this.state.horse !== "30") {
@@ -29,7 +29,9 @@ export default class Quiz extends React.Component {
           <h1> Quiz </h1>
           <form onSubmit={this.handleSubmit}>
             <p>
-              <label htmlFor="sum">What was the name of the example function?</label>
+              <label htmlFor="sum">
+                What was the name of the example function?
+              </label>
               <input
                 type="text"
                 dir="auto"
@@ -44,7 +46,8 @@ export default class Quiz extends React.Component {
             </p>
             <p>
               <label htmlFor="horse">
-                You must stay in the system for XX minutes in total or solve correctly the 3 rounds. What is the correct number for XX?
+                You must stay in the system for XX minutes in total or solve
+                correctly the 3 rounds. What is the correct number for XX?
               </label>
               <input
                 type="text"

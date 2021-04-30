@@ -16,12 +16,12 @@ class timer extends React.Component {
       <div className={classes.join(" ")}>
         <h4>This round ends after</h4>
         <span className="seconds">
-        {Math.floor(remainingSeconds / 60)} minutes  <br/>
-        {remainingSeconds % 60} seconds
+          {Math.floor(remainingSeconds / 60)} minutes <br />
+          {remainingSeconds % 60} seconds
         </span>
       </div>
     );
   }
 }
 
-export default (Timer = StageTimeWrapper(timer));
+export default Timer = StageTimeWrapper(timer);

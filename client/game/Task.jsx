@@ -5,12 +5,11 @@ import TaskResponseC from "./TaskResponseC";
 import TaskStimulus from "./TaskStimulus";
 
 export default class Task extends React.Component {
-
   constructor(props) {
     super(props);
 
-    this.state = { 
-      isAfirst: true
+    this.state = {
+      isAfirst: true,
     };
   }
 
@@ -19,10 +18,10 @@ export default class Task extends React.Component {
 
     // if CA, change isAfirst to false
     if (game.treatment.order == 1) {
-      console.log("CA")
+      console.log("CA");
       this.setState({
-        isAfirst: false
-      })
+        isAfirst: false,
+      });
     }
   }
 
@@ -30,19 +29,18 @@ export default class Task extends React.Component {
     const { round } = this.props;
     const { isAfirst } = this.state;
 
-    const showA = (isAfirst && round.index == 0) || (!isAfirst && round.index == 1);
+    const showA =
+      (isAfirst && round.index == 0) || (!isAfirst && round.index == 1);
 
     return (
       <div className="task">
-
         <TaskStimulus {...this.props} showA={showA} />
 
-        {showA ?
-            <TaskResponse {...this.props} />
-          :
-            <TaskResponseC {...this.props} />
-        }
-        
+        {showA ? (
+          <TaskResponse {...this.props} />
+        ) : (
+          <TaskResponseC {...this.props} />
+        )}
       </div>
     );
   }

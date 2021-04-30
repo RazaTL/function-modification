@@ -10,7 +10,8 @@ export default class TaskStimulus extends React.Component {
         Round {round.index + 1}.
         {showA ? (
           <div>
-            <b>Please write a function implementing the following code.</b> <br />
+            <b>Please write a function implementing the following code.</b>{" "}
+            <br />
             You have 15 minutes.
             <br />
             You can refer to the instructions by clicking on the button on the
@@ -22,8 +23,8 @@ export default class TaskStimulus extends React.Component {
               Please write a function using one of the commented pieces of code.
             </b>{" "}
             <br />
-            If the comments below are unsatisfying, you can skip it and read a new
-            one by clicking on the "Skip this draft" button.
+            If the comments below are unsatisfying, you can skip it and read a
+            new one by clicking on the "Skip this draft" button.
             <br />
             You can always choose to use or view the previous drafts using the
             sidebar on the right.

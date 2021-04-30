@@ -11,9 +11,10 @@ import { drafts } from "./constants";
 // rounds and stages (with get/set methods), that will be able to use later in
 // the game.
 
-
-Array.prototype.shuffle = function() {
-  var currentIndex = this.length, temporaryValue, randomIndex;
+Array.prototype.shuffle = function () {
+  var currentIndex = this.length,
+    temporaryValue,
+    randomIndex;
 
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -23,18 +24,18 @@ Array.prototype.shuffle = function() {
     this[currentIndex] = this[randomIndex];
     this[randomIndex] = temporaryValue;
   }
-  
-  return this;
-}
 
-Empirica.gameInit(game => {
+  return this;
+};
+
+Empirica.gameInit((game) => {
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
-    player.set("score", {score1: 0, score2: 0});
+    player.set("score", { score1: 0, score2: 0 });
     console.log("gameinit");
   });
 
-  _.times(game.treatment.nRounds, i => {
+  _.times(game.treatment.nRounds, (i) => {
     const round = game.addRound();
 
     round.set("drafts", drafts.shuffle());
@@ -42,7 +43,7 @@ Empirica.gameInit(game => {
     round.addStage({
       name: "response",
       displayName: "Writing a function",
-      durationInSeconds: game.treatment.stageDuration
+      durationInSeconds: game.treatment.stageDuration,
     });
   });
 });

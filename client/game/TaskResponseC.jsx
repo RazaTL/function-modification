@@ -277,7 +277,12 @@ export default class TaskResponseC extends React.Component {
         {confirmed ? (
           <div style={{ width: "70%" }}>
             <div className="task-response-form">
-              <div className="selected-draft" style={{maxHeight: "20vh", overflow: "auto"}} >{drafts[selected].content}</div>
+              <div
+                className="selected-draft"
+                style={{ maxHeight: "20vh", overflow: "auto" }}
+              >
+                {drafts[selected].content}
+              </div>
               {/* <div
                 style={{ maxHeight: "60vh", overflow: "auto" }}
               >
