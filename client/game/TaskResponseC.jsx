@@ -206,7 +206,8 @@ export default class TaskResponseC extends React.Component {
         onChange={this.handleChange}
         value={story}
         key={index}
-        className={isActive + "story story" + index}
+        // className={isActive + "story story" + index}
+        className={"active " + "story story" + index}
       ></textarea>
     );
   }
@@ -274,7 +275,7 @@ export default class TaskResponseC extends React.Component {
         ) : (
           ""
         )}
-        {confirmed ? (
+        {/* {confirmed ? (
           <div style={{ width: "70%" }}>
             <div className="task-response-form">
               <div
@@ -283,13 +284,6 @@ export default class TaskResponseC extends React.Component {
               >
                 {drafts[selected].content}
               </div>
-              {/* <div
-                style={{ maxHeight: "60vh", overflow: "auto" }}
-              >
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-              </div> */}
             </div>
             <form className="task-response-form" onSubmit={this.handleSubmit}>
               {stories.map((s, i) => this.renderTextarea(s, i))}
@@ -322,6 +316,48 @@ export default class TaskResponseC extends React.Component {
           <h4>All drafts</h4>
           {drafts.map(this.renderDraft)}
         </div>
+      </div> */}
+        <div className="task-response-form">
+          <div className="selected-draft">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Quibusdam saepe veritatis eaque ipsa laboriosam voluptas sint
+              perspiciatis tempore nesciunt ad! Suscipit sint voluptas non
+              explicabo minus molestiae sapiente fugit, maiores delectus
+              doloremque qui blanditiis facere sed error et illum quos
+              aspernatur ipsam. Accusantium maiores tenetur, laboriosam,
+              molestias unde vero repellendus possimus ipsam omnis error alias?
+              Modi accusantium vero itaque harum est ex ullam aperiam blanditiis
+              cupiditate! Error blanditiis iure maiores nemo omnis nesciunt
+              cumque esse dolorum magni voluptatem perferendis deserunt
+              reiciendis dolore placeat maxime est asperiores rerum expedita,
+              libero consequatur. Nostrum, exercitationem. Quis libero labore
+              iste totam consectetur magni distinctio itaque sed eum vitae
+              excepturi ut natus harum doloribus fuga dolor dolore, inventore
+              sit vel provident! TEST TEST TEST
+            </p>
+          </div>
+        </div>
+        <form className="task-response-form" onSubmit={this.handleSubmit}>
+          {/* {stories.map((s, i) => this.renderTextarea(s, i))} */}
+          <textarea
+            onChange={this.handleChange}
+            // value={story}
+            // key={index}
+            // className={isActive + "story story" + index}
+            className={"active " + "story"}
+          ></textarea>
+
+          <div>Total {numOfWords} words</div>
+
+          <button ref={this.submitBtnRef} className="hidden" type="submit">
+            Submit
+          </button>
+
+          <button className="green" onClick={this.handleNext}>
+            Submit (Start writing next story)
+          </button>
+        </form>
       </div>
     );
   }

@@ -110,7 +110,8 @@ export default class TaskResponse extends React.Component {
         onChange={this.handleChange}
         value={story}
         key={index}
-        className={isActive + "story story" + index}
+        // className={isActive + "story story" + index}
+        className={"active " + "story story" + index}
       ></textarea>
     );
   }
@@ -199,7 +200,14 @@ export default class TaskResponse extends React.Component {
           </div>
         </div>
         <form className="task-response-form" onSubmit={this.handleSubmit}>
-          {stories.map((s, i) => this.renderTextarea(s, i))}
+          {/* {stories.map((s, i) => this.renderTextarea(s, i))} */}
+          <textarea
+            onChange={this.handleChange}
+            // value={story}
+            // key={index}
+            // className={isActive + "story story" + index}
+            className={"active " + "story"}
+          ></textarea>
 
           <div>Total {numOfWords} words</div>
 
