@@ -1,0 +1,95 @@
+treatments:
+  - name: default
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+    archivedAt: 2021-03-19T10:11:12.375Z
+  - name: AC_test
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - RL8BWxrZXehPwCEyn
+      - J6Sa3r8cwzuNhAG5X
+      - A69gy3vJunAqeNWWt
+  - name: CA_test
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - RL8BWxrZXehPwCEyn
+      - oh3tamuzi72upAuqf
+      - A69gy3vJunAqeNWWt
+  - name: AC
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - AbKoeDXQxQ7ZP2Dwz
+      - J6Sa3r8cwzuNhAG5X
+      - A69gy3vJunAqeNWWt
+  - name: CA
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - AbKoeDXQxQ7ZP2Dwz
+      - oh3tamuzi72upAuqf
+      - A69gy3vJunAqeNWWt
+factorTypes:
+  - _id: xhogQd7qd3ZTP86Fn
+    name: playerCount
+    description: The Number of players participating in the given game.
+    required: true
+    type: Integer
+    min: 1
+  - _id: qmBAaauCpt4kkkozA
+    name: stageDuration
+    description: in seconds
+    required: false
+    type: Number
+    min: 0
+    max: 3600
+  - _id: NYA7ojfCpYGZaeRXP
+    name: order
+    description: order of conditions
+    required: false
+    type: Integer
+    min: 0
+  - _id: TzypnYGwhnSv7CA8A
+    name: nRounds
+    description: |-
+      number of rounds
+      (game - round - stage)
+    required: false
+    type: String
+    min: 0
+factors:
+  - _id: vG2tHhohzbCTy7shy
+    name: One
+    value: 1
+    factorTypeId: xhogQd7qd3ZTP86Fn
+  - _id: EMkBFWNj9KChoE4cJ
+    name: 30min
+    value: 1800
+    factorTypeId: qmBAaauCpt4kkkozA
+  - _id: RL8BWxrZXehPwCEyn
+    name: 30s
+    value: 30
+    factorTypeId: qmBAaauCpt4kkkozA
+    archivedAt: 2021-03-26T00:06:49.615Z
+  - _id: J6Sa3r8cwzuNhAG5X
+    name: A_C
+    value: 0
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: oh3tamuzi72upAuqf
+    name: C_A
+    value: 1
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: A69gy3vJunAqeNWWt
+    name: two
+    value: '2'
+    factorTypeId: TzypnYGwhnSv7CA8A
+  - _id: AbKoeDXQxQ7ZP2Dwz
+    name: 15min
+    value: 900
+    factorTypeId: qmBAaauCpt4kkkozA
+lobbyConfigs:
+  - name: default
+    timeoutType: individual
+    timeoutInSeconds: 3600
+    timeoutStrategy: fail
+    extendCount: 0
+    gameLobbyIds: []

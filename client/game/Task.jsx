@@ -2,6 +2,7 @@ import React from "react";
 
 import TaskResponse from "./TaskResponse";
 import TaskResponseC from "./TaskResponseC";
+import TaskResponceD from "./TaskResponseD"
 import TaskStimulus from "./TaskStimulus";
 
 export default class Task extends React.Component {

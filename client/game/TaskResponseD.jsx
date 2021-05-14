@@ -77,14 +77,10 @@ export default class TaskResponse extends React.Component {
   };
 
   handleSubmit = (e) => {
-
-    if (window.confirm("Are you sure?")){
-
     e.preventDefault();
 
     localStorage.setItem("confirmed", "");
     this.props.player.stage.submit();
-  }
   };
 
   countWords = (str) => {

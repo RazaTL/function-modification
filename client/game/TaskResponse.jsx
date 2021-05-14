@@ -79,8 +79,12 @@ export default class TaskResponse extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    if (window.confirm("Are you sure?")){
+
     localStorage.setItem("confirmed", "");
-    this.props.player.stage.submit();
+    this.props.player.stage.submit();}
+
+    //console.log(this.remainingSeconds);
   };
 
   countWords = (str) => {
@@ -179,28 +183,21 @@ export default class TaskResponse extends React.Component {
           ""
         )}
         <div className="task-response-form">
+          <div>
+            <p>Task: A customer shopping in a store decides he never wants to leave again. Modify the class 
+              below so that the customer will always be able to add items to his cart. If adding an item to 
+              the cart will make the total value of the cart exceed a customer’s budget, then remove the most 
+              expensive item from that cart before adding the new item.</p>
+          </div>
           <div className="selected-draft">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Quibusdam saepe veritatis eaque ipsa laboriosam voluptas sint
-              perspiciatis tempore nesciunt ad! Suscipit sint voluptas non
-              explicabo minus molestiae sapiente fugit, maiores delectus
-              doloremque qui blanditiis facere sed error et illum quos
-              aspernatur ipsam. Accusantium maiores tenetur, laboriosam,
-              molestias unde vero repellendus possimus ipsam omnis error alias?
-              Modi accusantium vero itaque harum est ex ullam aperiam blanditiis
-              cupiditate! Error blanditiis iure maiores nemo omnis nesciunt
-              cumque esse dolorum magni voluptatem perferendis deserunt
-              reiciendis dolore placeat maxime est asperiores rerum expedita,
-              libero consequatur. Nostrum, exercitationem. Quis libero labore
-              iste totam consectetur magni distinctio itaque sed eum vitae
-              excepturi ut natus harum doloribus fuga dolor dolore, inventore
-              sit vel provident!
+            <a href='https://pastebin.com/hXDPprsi'>Open This Link in a New Tab to View Code</a>
             </p>
           </div>
         </div>
         <form className="task-response-form" onSubmit={this.handleSubmit}>
           {/* {stories.map((s, i) => this.renderTextarea(s, i))} */}
+          
           <textarea
             onChange={this.handleChange}
             // value={story}
@@ -215,9 +212,10 @@ export default class TaskResponse extends React.Component {
             Submit
           </button>
 
-          <button className="green" onClick={this.handleNext}>
-            Submit (Start writing next story)
+          <button className="green" onClick={this.handleSubmit}>
+            Submit
           </button>
+
         </form>
       </div>
     );
