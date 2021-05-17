@@ -2,6 +2,7 @@ import React from "react";
 
 import { Callout, Intent } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
+import { remainingSeconds } from "./Timer";
 
 export default class TaskResponse extends React.Component {
   constructor(props) {
@@ -38,6 +39,10 @@ export default class TaskResponse extends React.Component {
 
   handleNext = (e) => {
     e.preventDefault();
+    
+    console.log(remainingSeconds);
+
+    if (window.confirm("Are you sure?")){
 
     const { numOfWords, stories } = this.state;
     const { player, round } = this.props;
@@ -72,8 +77,12 @@ export default class TaskResponse extends React.Component {
 
     player.round.set("value", newStories);
     this.props.handleScore(newStories.length - 1, round.index);
-    // player.round.set("scores", newStories.length);
-    // }
+    //player.round.set("scores", newStories.length);
+
+    localStorage.setItem("confirmed", "");
+    this.props.player.stage.submit();
+
+    }
   };
 
   handleSubmit = (e) => {
@@ -195,9 +204,10 @@ export default class TaskResponse extends React.Component {
             </p>
           </div>
         </div>
-        <form className="task-response-form" onSubmit={this.handleSubmit}>
+        <form className="task-response-form" onSubmit={this.handleNext}>
           {/* {stories.map((s, i) => this.renderTextarea(s, i))} */}
           
+
           <textarea
             onChange={this.handleChange}
             // value={story}
@@ -212,7 +222,7 @@ export default class TaskResponse extends React.Component {
             Submit
           </button>
 
-          <button className="green" onClick={this.handleSubmit}>
+          <button className="green" onClick={this.handleNext}>
             Submit
           </button>
 
