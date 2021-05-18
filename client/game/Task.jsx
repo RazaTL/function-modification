@@ -18,7 +18,7 @@ export default class Task extends React.Component {
     const { game } = this.props;
 
     // if CA, change isAfirst to false
-    if (game.treatment.order == 1) {
+    if (game.treatment.order == 3) {
       console.log("CA");
       this.setState({
         isAfirst: false,
@@ -40,7 +40,7 @@ export default class Task extends React.Component {
         {showA ? (
           <TaskResponse {...this.props} />
         ) : (
-          <TaskResponseC {...this.props} />
+          <TaskResponse {...this.props} />
         )}
       </div>
     );

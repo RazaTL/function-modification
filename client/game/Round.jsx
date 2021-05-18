@@ -49,7 +49,6 @@ export default class Round extends React.Component {
     const { player, game } = this.props;
 
     if (player) {
-      // const currentScore = player.get("scores") || {score1: 0, score2: 0};
       const currentScore = game.get("score") || { score1: 0, score2: 0 };
 
       this.setState((prevState) => ({

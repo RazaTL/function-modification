@@ -4,6 +4,19 @@ import { Callout, Intent } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import { remainingSeconds } from "./Timer";
 
+var dict = {
+  1: ["a1","b1","c1"],
+  2: ["a2", "b2", "c2"],
+  3: ["a3", "b3", "c3"],
+  4: ["a4", "b4", "c4"],
+  5: ["a5", "b5", "c5"],
+  6: ["a6", "b6", "c6"]
+};
+
+var p_index = 1;
+
+var count = 0;
+
 export default class TaskResponse extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +28,7 @@ export default class TaskResponse extends React.Component {
       submitted: false,
     };
   }
+  
 
   handleChange = (event) => {
     const { stories } = this.state;
@@ -79,6 +93,7 @@ export default class TaskResponse extends React.Component {
     this.props.handleScore(newStories.length - 1, round.index);
     //player.round.set("scores", newStories.length);
 
+    count += 1;
     localStorage.setItem("confirmed", "");
     this.props.player.stage.submit();
 
@@ -89,9 +104,10 @@ export default class TaskResponse extends React.Component {
     e.preventDefault();
 
     if (window.confirm("Are you sure?")){
-
+    
     localStorage.setItem("confirmed", "");
-    this.props.player.stage.submit();}
+    this.props.player.stage.submit();
+    }
 
     //console.log(this.remainingSeconds);
   };
@@ -131,6 +147,9 @@ export default class TaskResponse extends React.Component {
 
   componentDidMount() {
     const { player } = this.props;
+    const { game } = this.props;
+
+    p_index = game.treatment.order - 1;
 
     console.log(this.props);
 
@@ -200,7 +219,7 @@ export default class TaskResponse extends React.Component {
           </div>
           <div className="selected-draft">
             <p>
-            <a href='https://pastebin.com/hXDPprsi'>Open This Link in a New Tab to View Code</a>
+            <td>{dict[p_index][count]}</td>
             </p>
           </div>
         </div>
