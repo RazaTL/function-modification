@@ -4,13 +4,28 @@ import { Callout, Intent } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import { remainingSeconds } from "./Timer";
 
-var dict = {
-  1: ["a1","b1","c1"],
-  2: ["a2", "b2", "c2"],
-  3: ["a3", "b3", "c3"],
-  4: ["a4", "b4", "c4"],
-  5: ["a5", "b5", "c5"],
-  6: ["a6", "b6", "c6"]
+var a = ["https://pastebin.com/s3RFXSzh", "https://pastebin.com/dhSTrpLu"];
+var b = ["https://pastebin.com/yybmKCeD", "https://pastebin.com/cWGK68hS"];
+var c = ["https://pastebin.com/tKT1uwCJ", "https://pastebin.com/yhmhhdA0"];
+
+var desc = ["At a certain party there were two teams represented by 0 and 1 sitting in a long table. The organizer wanted to encourage integration and defined that a sitting arrangement was “sad” if there were 7 players or more within a single team sitting next to each other: 00101101111111010 was sad, while 101010111001111100 was not. So he was writing a function to evaluate whether an arrangement was sad or not. But he couldn’t finish it. Help him edit this function to print “YES” if the situation is sad and NO otherwise.", "Once upon a time a programmer wanted to write a function to compare two strings lexicographically ignoring the letter’s case (whether it was uppercase or lowercase) so that it printed -1 if the first string was less, “1” if the second was less than the first one, and “equal” if the strings are equal. Help her by modifying the code below to achieve this functionality.", "Task: A customer shopping in a store decides he never wants to leave again. Modify the class below so that the customer will always be able to add items to his cart. If adding an item to the cart will make the total value of the cart exceed a customer’s budget, then remove the most expensive item from that cart before adding the new item."]
+
+var links = {
+  1: [a[1], b[0], c[1]],
+  2: [a[0], c[1], b[1]],
+  3: [b[1], c[0], a[1]],
+  4: [b[0], a[1], c[0]],
+  5: [c[1], b[0], a[0]],
+  6: [c[0], a[1], b[0]]
+};
+
+var tasks = {
+  1: [desc[0], desc[1], desc[2]],
+  2: [desc[0], desc[2], desc[1]],
+  3: [desc[1], desc[2], desc[0]],
+  4: [desc[1], desc[0], desc[2]],
+  5: [desc[2], desc[1], desc[0]],
+  6: [desc[2], desc[0], desc[1]],
 };
 
 var p_index = 1;
@@ -212,14 +227,13 @@ export default class TaskResponse extends React.Component {
         )}
         <div className="task-response-form">
           <div>
-            <p>Task: A customer shopping in a store decides he never wants to leave again. Modify the class 
-              below so that the customer will always be able to add items to his cart. If adding an item to 
-              the cart will make the total value of the cart exceed a customer’s budget, then remove the most 
-              expensive item from that cart before adding the new item.</p>
+            <p>
+              <td>{tasks[p_index][count]}</td>
+            </p>
           </div>
           <div className="selected-draft">
             <p>
-            <td>{dict[p_index][count]}</td>
+            <a href={links[p_index][count]}>Click here to view the code for the task.</a>
             </p>
           </div>
         </div>
