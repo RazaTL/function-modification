@@ -1,0 +1,172 @@
+treatments:
+  - name: default
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+    archivedAt: 2021-03-19T10:11:12.375Z
+  - name: AC_test
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - RL8BWxrZXehPwCEyn
+      - J6Sa3r8cwzuNhAG5X
+      - A69gy3vJunAqeNWWt
+    archivedAt: 2021-05-18T20:54:53.494Z
+  - name: CA_test
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - RL8BWxrZXehPwCEyn
+      - oh3tamuzi72upAuqf
+      - A69gy3vJunAqeNWWt
+    archivedAt: 2021-05-18T20:54:53.961Z
+  - name: AC
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - AbKoeDXQxQ7ZP2Dwz
+      - J6Sa3r8cwzuNhAG5X
+      - A69gy3vJunAqeNWWt
+    archivedAt: 2021-05-18T20:54:54.307Z
+  - name: CA
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - AbKoeDXQxQ7ZP2Dwz
+      - oh3tamuzi72upAuqf
+      - A69gy3vJunAqeNWWt
+    archivedAt: 2021-05-18T20:54:54.693Z
+  - name: ABC
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - J6Sa3r8cwzuNhAG5X
+      - pTzxQeF2jSXNxRWp4
+    archivedAt: 2021-05-18T20:54:55.196Z
+  - name: p1
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - xnvm7Y47R9G6nEyHM
+      - EMkBFWNj9KChoE4cJ
+      - pTzxQeF2jSXNxRWp4
+  - name: p2
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - nix5PsX7nncrkCZFc
+      - pTzxQeF2jSXNxRWp4
+  - name: p3
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - YF76eJoZpqw3jwk8S
+      - pTzxQeF2jSXNxRWp4
+  - name: p4
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - A7NM3SBjRHfNCKesZ
+      - pTzxQeF2jSXNxRWp4
+  - name: p5
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - ThqtEpF4Mut3CfS4k
+      - pTzxQeF2jSXNxRWp4
+  - name: p6
+    factorIds:
+      - vG2tHhohzbCTy7shy
+      - EMkBFWNj9KChoE4cJ
+      - aKSsKr3XNi7nt5Mx4
+      - pTzxQeF2jSXNxRWp4
+factorTypes:
+  - _id: 3MmQtpSYDqfWAB3TN
+    name: playerCount
+    description: The Number of players participating in the given game.
+    required: true
+    type: Integer
+    min: 1
+  - _id: qmBAaauCpt4kkkozA
+    name: stageDuration
+    description: in seconds
+    required: false
+    type: Number
+    min: 0
+    max: 3600
+  - _id: NYA7ojfCpYGZaeRXP
+    name: order
+    description: order of conditions
+    required: false
+    type: Integer
+    min: 0
+  - _id: TzypnYGwhnSv7CA8A
+    name: nRounds
+    description: |-
+      number of rounds
+      (game - round - stage)
+    required: false
+    type: String
+    min: 0
+factors:
+  - _id: vG2tHhohzbCTy7shy
+    name: One
+    value: 1
+    factorTypeId: 3MmQtpSYDqfWAB3TN
+  - _id: EMkBFWNj9KChoE4cJ
+    name: 30min
+    value: 1800
+    factorTypeId: qmBAaauCpt4kkkozA
+  - _id: RL8BWxrZXehPwCEyn
+    name: 30s
+    value: 30
+    factorTypeId: qmBAaauCpt4kkkozA
+    archivedAt: 2021-03-26T00:06:49.615Z
+  - _id: J6Sa3r8cwzuNhAG5X
+    name: A_C
+    value: 0
+    factorTypeId: NYA7ojfCpYGZaeRXP
+    archivedAt: 2021-05-18T20:52:37.517Z
+  - _id: oh3tamuzi72upAuqf
+    name: C_A
+    value: 1
+    factorTypeId: NYA7ojfCpYGZaeRXP
+    archivedAt: 2021-05-18T20:52:38.092Z
+  - _id: A69gy3vJunAqeNWWt
+    name: two
+    value: '2'
+    factorTypeId: TzypnYGwhnSv7CA8A
+  - _id: AbKoeDXQxQ7ZP2Dwz
+    name: 15min
+    value: 900
+    factorTypeId: qmBAaauCpt4kkkozA
+  - _id: pTzxQeF2jSXNxRWp4
+    name: three
+    value: '3'
+    factorTypeId: TzypnYGwhnSv7CA8A
+  - _id: xnvm7Y47R9G6nEyHM
+    name: '1'
+    value: 2
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: nix5PsX7nncrkCZFc
+    name: '2'
+    value: 3
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: YF76eJoZpqw3jwk8S
+    name: '3'
+    value: 4
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: A7NM3SBjRHfNCKesZ
+    name: '4'
+    value: 5
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: ThqtEpF4Mut3CfS4k
+    name: '5'
+    value: 6
+    factorTypeId: NYA7ojfCpYGZaeRXP
+  - _id: aKSsKr3XNi7nt5Mx4
+    name: '6'
+    value: 7
+    factorTypeId: NYA7ojfCpYGZaeRXP
+lobbyConfigs:
+  - name: default
+    timeoutType: individual
+    timeoutInSeconds: 3600
+    timeoutStrategy: fail
+    extendCount: 0
+    gameLobbyIds: []
