@@ -32,6 +32,7 @@ var p_index = 1;
 
 var count = 0;
 
+
 export default class TaskResponse extends React.Component {
   constructor(props) {
     super(props);
@@ -108,7 +109,7 @@ export default class TaskResponse extends React.Component {
     this.props.handleScore(newStories.length - 1, round.index);
     //player.round.set("scores", newStories.length);
 
-    count += 1;
+    //count += 1;
     localStorage.setItem("confirmed", "");
     this.props.player.stage.submit();
 
@@ -163,8 +164,10 @@ export default class TaskResponse extends React.Component {
   componentDidMount() {
     const { player } = this.props;
     const { game } = this.props;
+    const { round } = this.props;
 
     p_index = game.treatment.order - 1;
+    count = round.index;
 
     console.log(this.props);
 
@@ -199,6 +202,7 @@ export default class TaskResponse extends React.Component {
   render() {
     const { player, stage } = this.props;
     const { numOfWords, stories, submitted } = this.state;
+    const { round } = this.props;
 
     // If the player already submitted, don't show the slider or submit button
     if (player.stage.submitted) {
@@ -233,7 +237,8 @@ export default class TaskResponse extends React.Component {
           </div>
           <div className="selected-draft">
             <p>
-            <a href={links[p_index][count]}>Click here to view the code for the task.</a>
+            <a href={links[p_index][count]} target="_blank" rel="noopener noreferrer">Click here to view the code for the task.</a>
+            <td>{round.index}</td>
             </p>
           </div>
         </div>

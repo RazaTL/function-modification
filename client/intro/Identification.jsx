@@ -28,7 +28,7 @@ export default class Identification extends Component {
           <form onSubmit={this.handleSubmit}>
             <h1>Identification</h1>
 
-            <p>Please enter your Worker ID:</p>
+            <p>Please enter your SONA ID and MIT email:</p>
 
             <input
               className="bp3-input"
@@ -38,20 +38,10 @@ export default class Identification extends Component {
               id="id"
               value={id}
               onChange={this.handleUpdate}
-              placeholder="e.g. A1HXXXXXXXXX"
+              placeholder="e.g. XXXXX, jdoe@mit.edu"
               required
               autoComplete="off"
             />
-
-            <div>
-              <small>
-                You can find your Worker ID on the top left corner of mTurk
-                website.
-              </small>
-              <br />
-              <br />
-            </div>
-
             <p className="button-holder">
               <button type="submit">Submit</button>
             </p>

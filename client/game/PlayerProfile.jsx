@@ -42,7 +42,7 @@ export default class PlayerProfile extends React.Component {
             <small>*You need to write at least 1 function in each round</small>
           </span>
         ) : (
-          <span>$4 ~ ${4 + score1 + score2}</span>
+          <span>$8 ~ ${8 + 4*score1 + 4*score2}</span>
         )}
         <br />
         <small>
@@ -57,11 +57,11 @@ export default class PlayerProfile extends React.Component {
     const { stage } = this.props;
 
     return (
-      <aside className="player-profile">
-        {this.renderProfile()}
-        {this.renderScore()}
-        <Timer stage={stage} />
-      </aside>
+      //<aside className="player-profile">
+       // {this.renderProfile()}
+        //{this.renderScore()}
+        <Timer stage={stage}/>
+      //</aside>
     );
   }
 }

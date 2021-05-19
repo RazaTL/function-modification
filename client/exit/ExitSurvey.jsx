@@ -57,8 +57,7 @@ export default class ExitSurvey extends React.Component {
           <div className="exit-survey">
             <h1> Exit Survey (optional) </h1>
             <h3>
-              Please submit the following code to receive the payment back on
-              Mechanical Turk: <strong>{player._id}</strong>
+              Please submit the following code to receive the payment back on (YOU DO NOT NEED TO DO THIS): <strong>{player._id}</strong>
             </h3>
 
             <br />
@@ -225,7 +224,7 @@ export default class ExitSurvey extends React.Component {
                 <div>
                   <label htmlFor="strength">
                     <b>
-                      How would you describe your strength in writing stories?
+                    Did you find the commentary in the functions (whenever there was one) useful?
                     </b>
                   </label>
                   <div>
@@ -240,7 +239,7 @@ export default class ExitSurvey extends React.Component {
                 </div>
                 <div>
                   <label htmlFor="feedback">
-                    <b>Feedback, including problems you encountered.</b>
+                    <b>Any problems you encountered or things that would help us make the instructions and website more clear?</b>
                   </label>
                   <div>
                     <textarea
@@ -254,7 +253,7 @@ export default class ExitSurvey extends React.Component {
                 </div>
                 <div>
                   <label htmlFor="fair">
-                    <b>Do you feel the pay was fair?</b>
+                    <b>Any Other Comments</b>
                   </label>
                   <div>
                     <textarea

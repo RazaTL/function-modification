@@ -69,14 +69,14 @@ export default class Round extends React.Component {
       console.log("timeout cleared");
       this.timeout = false;
     } else if (!this.timeout && (player.idle || !player.online)) {
-      this.timeout = true;
+      // this.timeout = true;
       console.log("timeout set");
 
       this.t1 = setTimeout(() => {
         alert(
           "If you are idle or offline for more than 3 minutes, the task will be cancelled."
         );
-      }, 1 * 60 * 1000);
+      }, 100 * 60 * 1000);
 
       // TODO: change this to 3 minutes
       this.t2 = setTimeout(() => {
@@ -84,7 +84,7 @@ export default class Round extends React.Component {
           localStorage.setItem("confirmed", "");
           player.exit("Thanks");
         }
-      }, 15 * 60 * 1000);
+      }, 1500 * 60 * 1000);
     }
 
     return (

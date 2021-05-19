@@ -10,27 +10,21 @@ export default class TaskStimulus extends React.Component {
         Round {round.index + 1}.
         {showA ? (
           <div>
-            <b>Please write a function implementing the following code.</b>
+            <b>Please modify the provided function to achieve the indicated functionality and submit the code in the window on the right.</b>
             <br />
-            You have 15 minutes.
+            You have up to 30 minutes.
             <br />
             You can refer to the instructions by clicking on the button on the
-            top right corner.
+            top right corner. If the task description does not appear at first, try refreshing the page.
           </div>
         ) : (
           <div>
-            <b>
-              Please write a function using one of the commented pieces of code.
-            </b>
+            <b>Please modify the provided function to achieve the indicated functionality and submit the code in the window on the right.</b>
             <br />
-            If the comments below are unsatisfying, you can skip it and read a
-            new one by clicking on the "Skip this draft" button.
+            You have up to 30 minutes.
             <br />
-            You can always choose to use or view the previous drafts using the
-            sidebar on the right.
-            <br />
-            You have 15 minutes. You can refer to the instructions by clicking
-            on the button on the top right corner.
+            You can refer to the instructions by clicking on the button on the
+            top right corner. If the task description does not appear at first, try refreshing the page.
           </div>
         )}
       </div>
