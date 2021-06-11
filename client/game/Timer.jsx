@@ -14,10 +14,10 @@ class timer extends React.Component {
 
     return (
       <div className={classes.join(" ")}>
-        <h4>This round ends after</h4>
+        <h4>This round has lasted</h4>
         <span className="seconds">
-          {Math.floor(remainingSeconds / 60)} minutes <br />
-          {remainingSeconds % 60} seconds
+          {Math.floor(60 - remainingSeconds / 60)} minutes <br />
+          {60 - remainingSeconds % 60} seconds
         </span>
       </div>
     );

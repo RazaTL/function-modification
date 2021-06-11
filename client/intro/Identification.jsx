@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import { Centered } from "meteor/empirica:core";
 
 export default class Identification extends Component {
-  state = { id: "" };
-
+  state = { id: "", email: "" };
+  
   // Update the stored state of the id
   handleUpdate = (event) => {
     const { value, name } = event.currentTarget;
     this.setState({ [name]: value });
+  };
+
+  handleChange = (event) => {
+    const el = event.currentTarget;
+    this.setState({ [el.name]: el.value });
   };
 
   // Submit the id when submit button is clicked
@@ -16,11 +21,13 @@ export default class Identification extends Component {
 
     const { handleNewPlayer } = this.props;
     const { id } = this.state;
-    handleNewPlayer(id);
+    const { email } = this.state;
+    handleNewPlayer(id + "," + email);
   };
 
   render() {
     const { id } = this.state;
+    const { email } = this.state;
 
     return (
       <Centered>
@@ -28,7 +35,7 @@ export default class Identification extends Component {
           <form onSubmit={this.handleSubmit}>
             <h1>Identification</h1>
 
-            <p>Please enter your SONA ID and MIT email:</p>
+            <p>Please enter your SONA ID:</p>
 
             <input
               className="bp3-input"
@@ -37,8 +44,25 @@ export default class Identification extends Component {
               name="id"
               id="id"
               value={id}
-              onChange={this.handleUpdate}
-              placeholder="e.g. XXXXX, jdoe@mit.edu"
+              onChange={this.handleChange}
+              placeholder="e.g. XXXXX"
+              required
+              autoComplete="off"
+            />
+
+            <h1>Identification</h1>
+
+            <p>Please enter your MIT email:</p>
+
+            <input
+              className="bp3-input"
+              dir="auto"
+              type="text"
+              name="email"
+              id="email"
+              value={email}
+              onChange={this.handleChange}
+              placeholder="e.g. jdoe@mit.edu"
               required
               autoComplete="off"
             />
@@ -48,6 +72,8 @@ export default class Identification extends Component {
           </form>
         </div>
       </Centered>
+
+      
     );
   }
 }

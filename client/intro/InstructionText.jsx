@@ -39,25 +39,13 @@ export default class InstructionText extends React.Component {
 
         <h3>Task</h3>
         <p className="instruction-text">
-          Your task is to modify a simple piece of code in java in order to
+          Welcome! For this experiment your task is to modify a simple piece of code in java in order to
           achieve an indicated functionality. <br />
-          There will be three rounds <br />
-        </p>
 
-        <h3>Payment</h3>
-        <p className="instruction-text">
-          <b>Base payment: $8 for participation</b>
-          <br />
-          - Requirement: modify code in the three rounds in a non gibbersih
-          functional manner.
-          <br />
-          <br />
-          <b>
-            Bonus payment: $2-4.50 per function which achieves desired functionality
-            successfully. Up to $4.50 based on how fast the modification was realized.
-          </b>
-          <br />
+          There will be eight rounds. <br />
         </p>
+        <p>You will receieve $4 for completing the experiment. This comes with an additional bonus for each correct instance 
+          based on how fast you complete it, up to $3 for each of the 8 instances (conditional on being correct).</p>
       </div>
     );
   }

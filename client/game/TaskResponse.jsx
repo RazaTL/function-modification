@@ -7,25 +7,26 @@ import { remainingSeconds } from "./Timer";
 var a = ["https://pastebin.com/s3RFXSzh", "https://pastebin.com/dhSTrpLu"];
 var b = ["https://pastebin.com/yybmKCeD", "https://pastebin.com/cWGK68hS"];
 var c = ["https://pastebin.com/tKT1uwCJ", "https://pastebin.com/yhmhhdA0"];
+var d = ["https://pastebin.com/jZbCwN8q","https://pastebin.com/gtrjw2ux"];
+var e = ["https://pastebin.com/DBkKGAKK", "https://pastebin.com/S9JHfq4W"];
+var f = ["https://pastebin.com/CX7UMGQR", "https://pastebin.com/qGM0KrJa"];
+var g = ["https://pastebin.com/Ua99QdAM", "https://pastebin.com/ZnRWzia3"];
+var h = ["https://pastebin.com/w0Ld5GE9", "https://pastebin.com/TvVdFfsV"];
 
-var desc = ["At a certain party there were two teams represented by 0 and 1 sitting in a long table. The organizer wanted to encourage integration and defined that a sitting arrangement was “sad” if there were 7 players or more within a single team sitting next to each other: 00101101111111010 was sad, while 101010111001111100 was not. So he was writing a function to evaluate whether an arrangement was sad or not. But he couldn’t finish it. Help him edit this function to print “YES” if the situation is sad and NO otherwise.", "Once upon a time a programmer wanted to write a function to compare two strings lexicographically ignoring the letter’s case (whether it was uppercase or lowercase) so that it printed -1 if the first string was less, “1” if the second was less than the first one, and “equal” if the strings are equal. Help her by modifying the code below to achieve this functionality.", "Task: A customer shopping in a store decides he never wants to leave again. Modify the class below so that the customer will always be able to add items to his cart. If adding an item to the cart will make the total value of the cart exceed a customer’s budget, then remove the most expensive item from that cart before adding the new item."]
+var desc = ["At a certain party there were two teams represented by 0 and 1 sitting in a long table. The organizer wanted to encourage integration and defined that a sitting arrangement was “sad” if there were 7 players or more within a single team sitting next to each other: 00101101111111010 was sad, while 101010111001111100 was not. So he was writing a function to evaluate whether an arrangement was sad or not. But he couldn’t finish it. Help him edit this function to print “YES” if the situation is sad and NO otherwise.", "Once upon a time a programmer wanted to write a function to compare two strings lexicographically ignoring the letter’s case (whether it was uppercase or lowercase) so that it printed -1 if the first string was less, “1” if the second was less than the first one, and “equal” if the strings are equal. Help her by modifying the code below to achieve this functionality.", "Task: A customer shopping in a store decides he never wants to leave again. Modify the class below so that the customer will always be able to add items to his cart. If adding an item to the cart will make the total value of the cart exceed a customer’s budget, then remove the most expensive item from that cart before adding the new item.", "There are n rocks in a row which can be of three different types represented by a character. John wants figure out the minimum number of rocks needed to be removed so that any two neighboring rocks have different types. Help him edit this function to print the number of rocks that need to be removed from a given row.", "Andres types the word s. It is considered that it successfully said hello if several letters can be deleted so that it results in “hello” so that “ahhellloou” is good but ‘hlelooo’ isn’t. Help him edit this function to print “YES” if Andres managed to say hello and otherwise print “NO”.", "Given a string consisting of upper and lowercase letters we would like to: delete all the vowels (A,O,Y,E,U,I), insert a character “.” before consonants, and replace uppercase consonants with corresponding lowercase ones. Help by modifying the code below to achieve this functionality.", "Modify the code below so that when the user tries to get the price of the item the price will change under the following condition: if the price can be reduced, it should be reduced before it is returned to the user.", "Modify the class below so that the addStudent method will only add a student if the average class GPA is equal to the range of the class's GPA's!"]
 
 var links = {
-  1: [a[1], b[0], c[1]],
-  2: [a[0], c[1], b[1]],
-  3: [b[1], c[0], a[1]],
-  4: [b[0], a[1], c[0]],
-  5: [c[1], b[0], a[0]],
-  6: [c[0], a[1], b[0]]
+  1: [a[1], b[0], c[1], d[0], e[1], f[0], g[1], h[0]],
+  2: [a[0], b[1], c[0], d[1], e[0], f[1], g[0], h[1]],
+  3: [h[0], g[1], f[0], e[1], d[0], c[1], b[0], a[1]],
+  4: [h[1], g[0], f[1], e[0], d[1], c[0], b[1], a[0]]
 };
 
 var tasks = {
-  1: [desc[0], desc[1], desc[2]],
-  2: [desc[0], desc[2], desc[1]],
-  3: [desc[1], desc[2], desc[0]],
-  4: [desc[1], desc[0], desc[2]],
-  5: [desc[2], desc[1], desc[0]],
-  6: [desc[2], desc[0], desc[1]],
+  1: [desc[0], desc[1], desc[2], desc[3], desc[4], desc[5], desc[6], desc[7]],
+  2: [desc[0], desc[1], desc[2], desc[3], desc[4], desc[5], desc[6], desc[7]],
+  3: [desc[7], desc[6], desc[5], desc[4], desc[3], desc[2], desc[1], desc[0]],
+  4: [desc[7], desc[6], desc[5], desc[4], desc[3], desc[2], desc[1], desc[0]]
 };
 
 var p_index = 1;
@@ -238,7 +239,6 @@ export default class TaskResponse extends React.Component {
           <div className="selected-draft">
             <p>
             <a href={links[p_index][count]} target="_blank" rel="noopener noreferrer">Click here to view the code for the task.</a>
-            <td>{round.index}</td>
             </p>
           </div>
         </div>
