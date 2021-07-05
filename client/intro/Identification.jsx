@@ -52,7 +52,7 @@ export default class Identification extends Component {
 
             <h1>Identification</h1>
 
-            <p>Please enter your MIT email:</p>
+            <p>Please enter your email:</p>
 
             <input
               className="bp3-input"
@@ -62,7 +62,7 @@ export default class Identification extends Component {
               id="email"
               value={email}
               onChange={this.handleChange}
-              placeholder="e.g. jdoe@mit.edu"
+              placeholder="e.g. jdoe@gmail.com"
               required
               autoComplete="off"
             />
