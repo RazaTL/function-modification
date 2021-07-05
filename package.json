@@ -2,7 +2,7 @@
   "name": "storywriting",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": ""
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
